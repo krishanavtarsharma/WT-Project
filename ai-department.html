@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!-- © 2026 Krishanavtar Sharma. All rights reserved. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Krishanavtar Sharma">
+<meta name="copyright" content="© 2026 Krishanavtar Sharma. All rights reserved.">
+<title>Department of Artificial Intelligence — ICFAI University</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b1020;--navy-700:#151c36;--brass:#6a4bff;--brass-light:#22d3ee;--bg:#f1f4fc;--bg2:#f8faff;--card:#fff;--heading:#0b1020;--ink:#111830;--muted:#55607f;--line:rgba(17,24,48,.14);--ld:rgba(241,244,252,.16);--display:'Space Grotesk',system-ui,sans-serif;--sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0f1f;--bg2:#0e1428;--card:#121a33;--heading:#eef1ff;--ink:#dfe4f7;--muted:#9aa5c8;--line:rgba(223,228,247,.14);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a0f1f;--bg2:#0e1428;--card:#121a33;--heading:#eef1ff;--ink:#dfe4f7;--muted:#9aa5c8;--line:rgba(223,228,247,.14);color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}ul{list-style:none}button{font-family:inherit}
+:focus-visible{outline:2.5px solid var(--brass-light);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px;position:relative}
+.mono{font-family:var(--mono)}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brass),var(--brass-light));z-index:60}
+header.site{background:var(--navy);color:#f8faff;border-bottom:1px solid var(--ld)}
+header.site .wrap{display:flex;align-items:center;gap:16px;padding-top:20px;padding-bottom:20px}
+.crest{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--brass-light);display:flex;align-items:center;justify-content:center;font:600 1.1rem var(--display);color:var(--brass-light);flex-shrink:0}
+.brand-name{font:600 1.25rem/1.25 var(--display)}.brand-sub{font-size:.82rem;color:rgba(241,244,252,.6)}
+.theme-btn{margin-left:auto;width:38px;height:38px;border-radius:50%;border:1px solid var(--ld);background:transparent;color:#f8faff;font-size:1.1rem;cursor:pointer}
+nav.primary{background:var(--navy-700);border-bottom:3px solid var(--brass);position:sticky;top:0;z-index:50}
+nav.primary .wrap{display:flex;gap:2px;overflow-x:auto}
+nav.primary a{padding:14px 15px;color:rgba(241,244,252,.82);font-size:.9rem;font-weight:500;white-space:nowrap;border-bottom:2px solid transparent;transition:.2s}
+nav.primary a:hover,nav.primary a.on{color:#fff;border-color:var(--brass-light)}
+.hero{background:radial-gradient(ellipse 700px 380px at 88% -10%,rgba(106,75,255,.25),transparent 60%),var(--navy);color:#f8faff;position:relative;overflow:hidden}
+#neuro{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{padding-top:64px;padding-bottom:48px}
+.greeting-badge{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--ld);border-radius:100px;padding:7px 16px 7px 12px;font-size:.84rem;font-weight:500;color:var(--brass-light);margin-bottom:22px;animation:rise .6s both}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--brass-light);box-shadow:0 0 10px var(--brass-light)}
+.hero h1{font:700 clamp(2rem,4.4vw,3rem)/1.15 var(--display);max-width:20ch;animation:rise .65s .1s both}
+.grad{background:linear-gradient(90deg,#a99bff,var(--brass-light));-webkit-background-clip:text;background-clip:text;color:transparent}
+.typed-line{margin-top:16px;font:500 1.05rem var(--mono);color:var(--brass-light);min-height:1.7em}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--brass-light);vertical-align:-3px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lede{margin-top:14px;color:rgba(241,244,252,.78);max-width:58ch}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.abtn{display:inline-block;background:linear-gradient(90deg,var(--brass),#3b82f6);color:#fff;border:0;border-radius:8px;padding:11px 22px;font-weight:600;font-size:.9rem;cursor:pointer;transition:transform .2s}
+.abtn:hover{transform:translateY(-2px)}.abtn-ghost{background:transparent;border:1px solid var(--ld)}
+.fact-strip{display:flex;margin-top:38px;border-top:1px solid var(--ld);flex-wrap:wrap;row-gap:14px}
+.fact{padding:18px 26px 0 0;margin-right:26px;border-right:1px solid var(--ld)}.fact:last-child{border:0}
+.fact strong{display:block;font:600 1.5rem var(--display);color:var(--brass-light)}.fact span{font-size:.82rem;color:rgba(241,244,252,.62)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.ticker{background:var(--navy-700);overflow:hidden;border-bottom:1px solid var(--ld)}
+.ticker-track{display:flex;width:max-content;align-items:center;gap:22px;padding:12px 0;animation:tick 32s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker button{background:none;border:0;color:rgba(241,244,252,.85);font:500 .86rem var(--mono);cursor:pointer;white-space:nowrap}.ticker button:hover{color:var(--brass-light)}
+.ticker i{color:var(--brass);font-style:normal;font-size:.6rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+section{padding:60px 0;border-bottom:1px solid var(--line)}
+.section-label{font:600 .78rem var(--mono);color:var(--brass);margin-bottom:10px}
+.section-title{font:700 clamp(1.5rem,2.6vw,1.9rem) var(--display);color:var(--heading);max-width:32ch}
+.about,.faculty,.contact,.research,.quiz{background:var(--bg)}.programs,.fee-estimate,.roadmap{background:var(--bg2)}
+.about-body{max-width:68ch;margin-top:18px;color:var(--muted)}
+.about-extra{display:grid;gap:10px;margin-top:14px}.hidden{display:none}
+.toggle-link{margin-top:16px;background:none;border:0;border-bottom:1.5px solid var(--brass);color:var(--heading);font-weight:600;cursor:pointer;padding:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.tab{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 15px;border-radius:100px;font-size:.86rem;font-weight:500;cursor:pointer}
+.tab[aria-selected=true]{background:var(--brass);border-color:var(--brass);color:#fff}
+.area-panel,.program-panel,.step-panel,.quiz-card{margin-top:16px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--brass);padding:22px 24px;border-radius:4px}
+.area-panel h3,.program-panel h3,.step-panel h3,.quiz-card h3{font:600 1.1rem var(--display);color:var(--heading);margin-bottom:6px}
+.area-panel p,.step-panel p,.hint{color:var(--muted)}
+.area-panel .mono{display:block;margin-top:10px;font-size:.78rem;color:var(--brass)}
+.tools-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:20px}
+.tools-label{font-size:.78rem;color:var(--muted)}
+.tool{position:relative;background:var(--card);border:1px solid var(--line);color:var(--ink);font:500 .8rem var(--mono);padding:5px 12px;border-radius:6px;cursor:help}
+.tool:hover::after,.tool:focus::after{content:attr(data-tip);position:absolute;bottom:125%;left:0;background:var(--navy);color:#fff;padding:7px 10px;border-radius:6px;font:400 .76rem var(--sans);width:max-content;max-width:220px;z-index:5}
+.program-grid{margin-top:26px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.program-card{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--brass);padding:20px 22px;cursor:pointer;transition:transform .2s,box-shadow .2s;border-radius:4px}
+.program-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(106,75,255,.18)}
+.program-card .code{font:600 .76rem var(--mono);color:var(--brass)}
+.program-card h3{font:600 1.08rem var(--display);color:var(--heading);margin-top:5px}
+.more{display:block;margin-top:10px;font-size:.84rem;color:var(--brass);font-weight:600}
+.program-panel dl{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;margin-top:10px;font-size:.92rem}
+.program-panel dt{font:600 .76rem var(--mono);color:var(--brass);padding-top:3px}.program-panel dd{color:var(--muted)}
+.sample-note{margin-top:12px;font-size:.78rem;color:var(--muted)}
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:26px}
+.steps-line{position:absolute;top:19px;left:12%;right:12%;height:2px;background:var(--line)}
+.steps-line span{display:block;height:100%;width:0;background:var(--brass);transition:width .4s}
+.step{position:relative;background:none;border:0;color:var(--ink);cursor:pointer;font-weight:600;font-size:.9rem;display:flex;flex-direction:column;align-items:center;gap:2px}
+.step b{width:38px;height:38px;border-radius:50%;background:var(--card);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--mono);margin-bottom:6px}
+.step.on b,.step.done b{background:var(--brass);border-color:var(--brass);color:#fff}
+.step em{font-style:normal;font-weight:400;font-size:.8rem;color:var(--muted)}
+.faculty-spotlight{margin-top:26px;background:var(--card);border:1px solid var(--line);padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;border-radius:4px}
+.faculty-info{display:flex;align-items:center;gap:18px}
+.faculty-info.swap{animation:swap .4s}
+@keyframes swap{from{opacity:0;transform:translateX(var(--dir,18px))}to{opacity:1;transform:none}}
+.faculty-avatar{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--brass),var(--brass-light));color:#fff;display:flex;align-items:center;justify-content:center;font:600 1.05rem var(--display);flex-shrink:0}
+.faculty-text h4{font:600 1.08rem var(--display);color:var(--heading)}.role{font-size:.86rem;color:var(--muted)}.spec{font:.76rem var(--mono);color:var(--brass);margin-top:3px}
+.interest{font-size:.86rem;color:var(--muted);margin-top:6px}.interest:empty{display:none}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.tbtn{background:transparent;border:1.5px solid var(--line);color:var(--heading);padding:7px 14px;border-radius:6px;font-size:.82rem;font-weight:600;cursor:pointer;transition:.2s;display:inline-block}
+.tbtn:hover{border-color:var(--brass);color:var(--brass)}.tbtn:disabled{opacity:.4;cursor:not-allowed}
+.spotlight-controls{display:flex;align-items:center;gap:12px}
+.spotlight-controls button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:var(--bg);color:var(--heading);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.spotlight-controls button:hover{border-color:var(--brass)}.spotlight-controls svg{width:15px;height:15px}
+.spotlight-count{font-size:.8rem;color:var(--muted);min-width:34px;text-align:center}
+.faculty-table{margin-top:24px;width:100%;border-collapse:collapse}
+.faculty-table th,.faculty-table td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-size:.92rem}
+.faculty-table th{font:600 .74rem var(--mono);color:var(--muted)}.faculty-table td:first-child{font-weight:600;color:var(--heading)}
+.faculty-table tr.clickable{cursor:pointer}.faculty-table tr.on{background:rgba(106,75,255,.12)}
+.notices{background:var(--navy);color:#f8faff}.notices .section-label{color:var(--brass-light)}.notices .section-title{color:#f8faff}
+.notice-list{margin-top:24px;border-top:1px solid var(--ld)}
+.notice-item{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--ld)}
+.notice-item .num{font:.86rem var(--mono);color:var(--brass-light)}.notice-item p{color:rgba(241,244,252,.88)}
+.quiz-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;font-size:.8rem;color:var(--muted)}
+.quiz-bar{flex:1;height:5px;background:var(--line);border-radius:5px;overflow:hidden}.quiz-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brass),var(--brass-light));transition:width .4s}
+.quiz-opts{display:grid;gap:8px;margin-top:12px}
+.opt{text-align:left;background:var(--bg);border:1.5px solid var(--line);color:var(--ink);padding:11px 14px;border-radius:6px;cursor:pointer;font-size:.92rem}
+.opt:hover:not(:disabled){border-color:var(--brass)}.opt.right{border-color:#22c55e;background:rgba(34,197,94,.14)}.opt.wrong{border-color:#e0405a;background:rgba(224,64,90,.12)}
+.quiz-note{margin-top:12px;font-size:.88rem;color:var(--muted);min-height:1.3em}
+.estimate-card{margin-top:24px;background:var(--card);border:1px solid var(--line);padding:26px 28px;max-width:580px;border-radius:4px}
+.estimate-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.estimate-row label{display:flex;gap:12px;align-items:center;cursor:pointer}.estimate-row input{width:18px;height:18px;accent-color:var(--brass)}
+.price{font:600 .9rem var(--mono);color:var(--muted)}
+.estimate-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding-top:16px;border-top:2px solid var(--brass)}
+.estimate-total span{color:var(--muted);font-weight:600;font-size:.92rem}.estimate-total strong{font:700 1.6rem var(--display);color:var(--heading)}
+.bump{animation:bump .3s}@keyframes bump{50%{transform:scale(1.12)}}
+.contact-grid{margin-top:26px;display:grid;grid-template-columns:.85fr 1.15fr;gap:40px}
+.contact-info p{color:var(--muted);margin-bottom:6px}.contact-info .label{font:600 .74rem var(--mono);color:var(--brass);margin:16px 0 4px}.contact-info .label:first-child{margin-top:0}
+.enquiry-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-field{display:flex;flex-direction:column;gap:5px}.form-field.full{grid-column:1/-1}
+.form-field label{font-size:.82rem;font-weight:600;color:var(--heading)}
+.form-field input,.form-field textarea,.form-field select{border:1.5px solid var(--line);padding:10px 12px;font:.94rem var(--sans);color:var(--ink);background:var(--card);border-radius:6px;resize:vertical}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--brass);outline:none}
+.field-error{font-size:.76rem;color:#e0405a;min-height:1em}
+.enquiry-form>button{grid-column:1/-1;justify-self:start;background:var(--brass);color:#fff;border:0;border-radius:8px;padding:12px 26px;font-weight:600;cursor:pointer}
+#enquiryMessage{grid-column:1/-1;font-size:.9rem;font-weight:600;padding:11px 15px;display:none;border-radius:6px}
+#enquiryMessage.success{display:block;background:rgba(106,75,255,.16);color:var(--heading)}#enquiryMessage.error{display:block;background:rgba(224,64,90,.12);color:#e0405a}
+.shake{animation:shake .35s}@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+footer{background:#060912;color:rgba(241,244,252,.6);text-align:center;padding:26px 0 calc(26px + env(safe-area-inset-bottom,0px));font-size:.84rem}
+.newsletter{display:flex;gap:8px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
+.newsletter input{padding:9px 12px;border-radius:6px;border:1px solid var(--ld);background:transparent;color:#fff;min-width:240px}
+.newsletter button{background:var(--brass);color:#fff;border:0;border-radius:6px;padding:9px 18px;font-weight:600;cursor:pointer}
+.to-top{position:fixed;right:18px;bottom:84px;width:42px;height:42px;border-radius:50%;border:0;background:var(--navy-700);color:#fff;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;z-index:40}.to-top.show{opacity:1;pointer-events:auto}
+.chat-fab{position:fixed;right:18px;bottom:20px;width:52px;height:52px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--brass),var(--brass-light));font-size:1.4rem;cursor:pointer;z-index:40;box-shadow:0 8px 24px rgba(106,75,255,.45)}
+.ping{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e}
+.chat{position:fixed;right:18px;bottom:84px;width:min(340px,calc(100vw - 36px));height:420px;background:var(--card);border:1px solid var(--line);border-radius:12px;display:none;flex-direction:column;z-index:70;box-shadow:0 18px 50px rgba(0,0,0,.35);overflow:hidden}.chat.open{display:flex}
+.chat-head{background:var(--navy);color:#fff;padding:12px 14px;display:flex;justify-content:space-between;font:600 .9rem var(--display)}.chat-head button{background:none;border:0;color:#fff;cursor:pointer}
+.chat-log{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:86%;padding:8px 12px;border-radius:12px;font-size:.88rem}.msg.bot{background:var(--bg);align-self:flex-start}.msg.me{background:var(--brass);color:#fff;align-self:flex-end}
+.chat-quick{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}.chat-quick button{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:100px;padding:4px 10px;font-size:.76rem;cursor:pointer}
+.chat-form{display:flex;border-top:1px solid var(--line)}.chat-form input{flex:1;border:0;padding:12px;background:transparent;color:var(--ink);font-size:.88rem}.chat-form button{border:0;background:var(--brass);color:#fff;padding:0 16px;cursor:pointer}
+.toasts{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);display:grid;gap:8px;z-index:90}
+.toast{background:var(--navy);color:#fff;padding:10px 18px;border-radius:8px;font-size:.88rem;border:1px solid var(--brass);animation:rise .3s}
+@media(max-width:700px){.contact-grid,.enquiry-form,.program-grid{grid-template-columns:1fr}.program-panel dl{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr);row-gap:18px}.steps-line{display:none}}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<header class="site"><div class="wrap">
+  <div class="crest" aria-hidden="true">AI</div>
+  <div><div class="brand-name">Department of Artificial Intelligence</div><div class="brand-sub">ICFAI University</div></div>
+  <button type="button" class="theme-btn" id="themeToggle" aria-label="Switch dark mode">☾</button>
+</div></header>
+<nav class="primary" aria-label="Primary"><div class="wrap">
+  <a href="#home">Home</a><a href="#about">About Department</a><a href="#research">Research</a><a href="#faculty">Faculty</a><a href="#courses">Courses</a><a href="#quiz">AI Quiz</a><a href="#contact">Contact</a>
+</div></nav>
+
+<section class="hero" id="home">
+  <canvas id="neuro" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="greeting-badge"><span class="dot" aria-hidden="true"></span><span id="greetingText">Welcome to the Department</span></div>
+    <h1>Welcome to the Department of <span class="grad">Artificial Intelligence</span></h1>
+    <div class="typed-line">Exploring <span id="typed"></span><i class="caret"></i></div>
+    <p class="lede">Quality education in machine learning, deep learning and intelligent systems, building the technical, analytical and problem-solving skills behind modern AI.</p>
+    <div class="hero-actions"><a class="abtn" href="#courses">Explore programs</a><a class="abtn abtn-ghost" href="#contact">Enquire now</a></div>
+    <div class="fact-strip">
+      <div class="fact"><strong>4</strong><span>AI Programs</span></div>
+      <div class="fact"><strong>3</strong><span>Core Faculty</span></div>
+      <div class="fact"><strong>6</strong><span>Research Areas</span></div>
+      <div class="fact"><strong>2026</strong><span>Current Session</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="AI topics"><div class="ticker-track" id="ticker"></div></div>
+
+<section class="about" id="about"><div class="wrap">
+  <div class="section-label">About the department</div>
+  <h2 class="section-title">Building intelligent systems that learn, reason and perceive</h2>
+  <div class="about-body">
+    <p>The Department of Artificial Intelligence trains students in the mathematics, algorithms and engineering behind machine learning, data science and intelligent systems, preparing them for careers in AI engineering, research and emerging technologies.</p>
+    <div class="about-extra hidden" id="aboutExtra">
+      <p>Dedicated AI and GPU labs support hands-on work in model training, data pipelines, and deployment, alongside seminars, hackathons and industry-sponsored projects each year.</p>
+      <p>Graduates go on to roles in ML engineering, data science, AI research, and postgraduate study.</p>
+    </div>
+    <button type="button" class="toggle-link" id="aboutToggle">Read more about the department</button>
+  </div>
+</div></section>
+
+<section class="research" id="research"><div class="wrap">
+  <div class="section-label">Research areas</div>
+  <h2 class="section-title">What we explore</h2>
+  <div class="tabs" id="areaTabs" role="tablist"></div>
+  <div class="area-panel" id="areaPanel" aria-live="polite"></div>
+  <div class="tools-row"><span class="mono tools-label">Tools &amp; frameworks</span>
+    <button type="button" class="tool" data-tip="Python: the main language for AI work.">Python</button>
+    <button type="button" class="tool" data-tip="NumPy: fast numerical arrays.">NumPy</button>
+    <button type="button" class="tool" data-tip="scikit-learn: classic machine learning algorithms.">scikit-learn</button>
+    <button type="button" class="tool" data-tip="TensorFlow: framework for building neural networks.">TensorFlow</button>
+    <button type="button" class="tool" data-tip="PyTorch: flexible deep learning framework.">PyTorch</button>
+    <button type="button" class="tool" data-tip="Jupyter: notebooks for experiments.">Jupyter</button>
+  </div>
+</div></section>
+
+<section class="programs" id="courses"><div class="wrap">
+  <div class="section-label">Programs offered</div>
+  <h2 class="section-title">AI degrees at every stage</h2>
+  <div class="program-grid">
+    <div class="program-card" role="button" tabindex="0" data-title="B.Tech Artificial Intelligence" data-dur="4 years, 8 semesters" data-elig="10+2 with Physics, Chemistry and Mathematics" data-high="Machine learning, deep learning, computer vision and a final-year capstone" data-career="ML Engineer, AI Developer, Data Scientist"><div class="code">UG · 4 YEARS</div><h3>B.Tech Artificial Intelligence</h3><span class="more">View details →</span></div>
+    <div class="program-card" role="button" tabindex="0" data-title="M.Tech Artificial Intelligence" data-dur="2 years, 4 semesters" data-elig="B.Tech / BE in Computer Science, AI or a related field" data-high="Advanced machine learning, NLP and a research thesis" data-career="Research Scientist, Senior ML Engineer, Lecturer"><div class="code">PG · 2 YEARS</div><h3>M.Tech Artificial Intelligence</h3><span class="more">View details →</span></div>
+    <div class="program-card" role="button" tabindex="0" data-title="BCA (AI &amp; Data Science)" data-dur="3 years, 6 semesters" data-elig="10+2 from a recognised board" data-high="Programming, statistics, data analytics and AI foundations" data-career="Data Analyst, Junior Developer, AI Support Engineer"><div class="code">UG · 3 YEARS</div><h3>BCA (AI &amp; Data Science)</h3><span class="more">View details →</span></div>
+    <div class="program-card" role="button" tabindex="0" data-title="MCA (AI &amp; Machine Learning)" data-dur="2 years, 4 semesters" data-elig="Graduation with Mathematics at 10+2 or graduation level" data-high="Applied machine learning, data engineering and projects" data-career="ML Developer, Data Engineer, Project Lead"><div class="code">PG · 2 YEARS</div><h3>MCA (AI &amp; Machine Learning)</h3><span class="more">View details →</span></div>
+  </div>
+  <div class="program-panel" id="programPanel" aria-live="polite"><p class="hint">Select a program to see its duration, eligibility, highlights and careers.</p></div>
+  <p class="sample-note">Program details are sample information for illustration.</p>
+</div></section>
+
+<section class="roadmap" id="roadmap"><div class="wrap">
+  <div class="section-label">Learning path</div>
+  <h2 class="section-title">Sample curriculum roadmap</h2>
+  <div class="steps" id="steps">
+    <div class="steps-line"><span id="stepsFill"></span></div>
+    <button type="button" class="step on" data-i="0"><b>1</b>Year 1<em>Foundations</em></button>
+    <button type="button" class="step" data-i="1"><b>2</b>Year 2<em>Core ML</em></button>
+    <button type="button" class="step" data-i="2"><b>3</b>Year 3<em>Deep Learning</em></button>
+    <button type="button" class="step" data-i="3"><b>4</b>Year 4<em>Capstone</em></button>
+  </div>
+  <div class="step-panel" id="stepPanel" aria-live="polite"></div>
+</div></section>
+
+<section class="faculty" id="faculty"><div class="wrap">
+  <div class="section-label">Faculty spotlight</div>
+  <h2 class="section-title">Meet the AI faculty</h2>
+  <div class="faculty-spotlight">
+    <div class="faculty-info">
+      <div class="faculty-avatar" id="facultyInitials">AS</div>
+      <div class="faculty-text">
+        <h4 id="facultyName">Dr. Amit Sharma</h4><div class="role" id="facultyRole">Professor</div><div class="spec" id="facultySpec">Artificial Intelligence</div>
+        <p class="interest" id="facultyInterest"></p>
+        <div class="btn-row"><button type="button" class="tbtn" id="facultyToggle">View research interests</button><button type="button" class="tbtn" id="facultyContact">Contact</button></div>
+      </div>
+    </div>
+    <div class="spotlight-controls">
+      <button type="button" id="facultyPrev" aria-label="Previous faculty member"><svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="spotlight-count" id="facultyCount">1 / 3</span>
+      <button type="button" id="facultyNext" aria-label="Next faculty member"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+  <div style="overflow-x:auto"><table class="faculty-table">
+    <thead><tr><th>Name</th><th>Designation</th><th>Specialization</th></tr></thead>
+    <tbody>
+      <tr class="clickable" tabindex="0"><td>Dr. Amit Sharma</td><td>Professor</td><td>Artificial Intelligence</td></tr>
+      <tr class="clickable" tabindex="0"><td>Dr. Neha Verma</td><td>Associate Professor</td><td>Data Science</td></tr>
+      <tr class="clickable" tabindex="0"><td>Mr. Rahul Singh</td><td>Assistant Professor</td><td>Computer Vision</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="notices" id="notices"><div class="wrap">
+  <div class="section-label">Notice board</div>
+  <h2 class="section-title">Important notices</h2>
+  <div class="notice-list">
+    <div class="notice-item"><span class="num">01</span><p>Mid-term examinations for Machine Learning and Data Science begin on 15 September.</p></div>
+    <div class="notice-item"><span class="num">02</span><p>Model-training lab assignments must be submitted before the deadline.</p></div>
+    <div class="notice-item"><span class="num">03</span><p>Registration for the AI seminar is now open.</p></div>
+  </div>
+</div></section>
+
+<section class="quiz" id="quiz"><div class="wrap">
+  <div class="section-label">AI challenge</div>
+  <h2 class="section-title">Test your AI knowledge</h2>
+  <div class="quiz-card" id="quizCard">
+    <div class="quiz-top"><span class="mono" id="quizStep">Question 1 of 4</span><div class="quiz-bar"><span id="quizBar"></span></div></div>
+    <h3 id="quizQ"></h3><div class="quiz-opts" id="quizOpts"></div><p class="quiz-note" id="quizNote"></p>
+    <div class="btn-row"><button type="button" class="tbtn" id="quizNext" disabled>Next question</button></div>
+  </div>
+</div></section>
+
+<section class="fee-estimate" id="fees"><div class="wrap">
+  <div class="section-label">Fee estimator</div>
+  <h2 class="section-title">Estimate your semester fee</h2>
+  <div class="estimate-card">
+    <div class="estimate-row"><label><input type="checkbox" class="bill-item" value="45000"> Tuition Fee</label><span class="price">₹45,000</span></div>
+    <div class="estimate-row"><label><input type="checkbox" class="bill-item" value="6000"> Lab Fee (AI &amp; GPU labs)</label><span class="price">₹6,000</span></div>
+    <div class="estimate-row"><label><input type="checkbox" class="bill-item" value="3000"> Library Fee</label><span class="price">₹3,000</span></div>
+    <div class="estimate-row"><label><input type="checkbox" class="bill-item" value="1500"> Examination Fee</label><span class="price">₹1,500</span></div>
+    <div class="estimate-total"><span>Estimated total</span><strong id="billTotal">₹0</strong></div>
+    <div class="btn-row"><button type="button" class="tbtn" id="feeAll">Select all</button><button type="button" class="tbtn" id="feeClear">Clear all</button><button type="button" class="abtn" id="feeApply">Enquire with these fees</button></div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <div class="section-label">Get in touch</div>
+  <h2 class="section-title">Contact us</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="label">Department</div><p>Department of Artificial Intelligence</p><p>ICFAI University</p>
+      <div class="label">Location</div><p>Jaipur, Rajasthan</p>
+      <div class="label">Email</div><p><a href="mailto:ai@xyzuniversity.edu">ai@xyzuniversity.edu</a></p>
+      <div class="btn-row"><button type="button" class="tbtn" id="copyMail">Copy email</button><a class="tbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=ICFAI+University+Jaipur+Rajasthan">Open in Maps</a></div>
+    </div>
+    <form class="enquiry-form" id="enquiryForm" novalidate>
+      <div class="form-field"><label for="enqName">Full name</label><input type="text" id="enqName" placeholder="Your name"><span class="field-error" id="err-enqName"></span></div>
+      <div class="form-field"><label for="enqEmail">Email</label><input type="text" id="enqEmail" placeholder="you@example.com"><span class="field-error" id="err-enqEmail"></span></div>
+      <div class="form-field"><label for="enqMobile">Mobile number</label><input type="text" id="enqMobile" placeholder="10-digit number"><span class="field-error" id="err-enqMobile"></span></div>
+      <div class="form-field"><label for="enqDate">Preferred visit date</label><input type="date" id="enqDate"><span class="field-error" id="err-enqDate"></span></div>
+      <div class="form-field full"><label for="enqProgram">Program of interest (optional)</label><select id="enqProgram"><option value="">Choose a program</option><option>B.Tech Artificial Intelligence</option><option>M.Tech Artificial Intelligence</option><option>BCA (AI &amp; Data Science)</option><option>MCA (AI &amp; Machine Learning)</option></select></div>
+      <div class="form-field full"><label for="enqMessage">Message</label><textarea id="enqMessage" rows="3" placeholder="What would you like to know?"></textarea><span class="field-error" id="err-enqMessage"></span></div>
+      <button type="submit">Send enquiry</button><p id="enquiryMessage"></p>
+    </form>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <form class="newsletter" id="newsletter" novalidate><input type="text" id="newsEmail" placeholder="Email for AI department updates" aria-label="Email address"><button type="submit">Subscribe</button></form>
+  <div>© 2026 ICFAI University, Department of Artificial Intelligence. All rights reserved. Created by <strong>Krishanavtar Sharma</strong>.</div>
+</div></footer>
+
+<button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
+<button type="button" class="chat-fab" id="chatFab" aria-label="Open AI assistant">🤖<span class="ping"></span></button>
+<div class="chat" id="chat" aria-hidden="true">
+  <div class="chat-head"><span>DeptBot · AI assistant</span><button type="button" id="chatClose" aria-label="Close chat">✕</button></div>
+  <div class="chat-log" id="chatLog"></div><div class="chat-quick" id="chatQuick"></div>
+  <form class="chat-form" id="chatForm"><input type="text" id="chatInput" placeholder="Ask about programs, fees, faculty..." aria-label="Message"><button type="submit">Send</button></form>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+var $=function(i){return document.getElementById(i)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function go(id){var e=$(id);if(e)e.scrollIntoView({behavior:reduce?"auto":"smooth"})}
+window.showToast=function(t){var d=document.createElement("div");d.className="toast";d.textContent=t;$("toasts").appendChild(d);setTimeout(function(){d.remove()},2400)};
+window.confetti=function(){if(reduce)return;var c=document.createElement("canvas");c.style.cssText="position:fixed;inset:0;pointer-events:none;z-index:99";c.width=innerWidth;c.height=innerHeight;document.body.appendChild(c);var x=c.getContext("2d"),cols=["#6a4bff","#22d3ee","#3b82f6","#a99bff"],p=[],t=0;
+for(var i=0;i<70;i++)p.push({x:innerWidth/2,y:innerHeight*.6,vx:(Math.random()-.5)*12,vy:-Math.random()*13-3,c:cols[i%4]});
+(function f(){x.clearRect(0,0,c.width,c.height);p.forEach(function(q){q.x+=q.vx;q.y+=q.vy;q.vy+=.4;x.fillStyle=q.c;x.fillRect(q.x,q.y,6,6)});if(++t<80)requestAnimationFrame(f);else c.remove()})()};
+
+/* greeting */
+(function(){var h=new Date().getHours();$("greetingText").textContent=(h<12?"Good Morning":h<18?"Good Afternoon":"Good Evening")+"! Welcome to the AI Department."})();
+
+/* theme */
+(function(){var r=document.documentElement,b=$("themeToggle");function dark(){return r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+function ic(){b.textContent=dark()?"☀":"☾"}ic();b.onclick=function(){r.dataset.theme=dark()?"light":"dark";ic()}})();
+
+/* data */
+var areas=[
+["Machine Learning","Algorithms that learn patterns from data: regression, ensembles, clustering and model evaluation.","Supervised · Unsupervised · Reinforcement"],
+["Deep Learning","Neural networks with many layers, trained with backpropagation to learn rich representations.","CNNs · Transformers · Diffusion"],
+["Natural Language Processing","Teaching machines to read, translate, summarise and converse in human language.","LLMs · Embeddings · Retrieval"],
+["Computer Vision","Image classification, object detection and scene understanding from pixels.","Detection · Segmentation · OCR"],
+["Robotics","Perception, planning and control for autonomous machines that act in the world.","SLAM · Navigation · Control"],
+["Generative AI","Models that create text, images, code and audio, plus the safety and ethics around them.","Prompting · Fine-tuning · Alignment"]];
+
+/* ticker + research tabs */
+(function(){var h="";for(var k=0;k<2;k++)areas.forEach(function(a,i){h+='<button type="button" data-area="'+i+'">'+a[0]+'</button><i>◆</i>'});$("ticker").innerHTML=h;
+var tabs=$("areaTabs");areas.forEach(function(a,i){var b=document.createElement("button");b.type="button";b.className="tab";b.setAttribute("role","tab");b.textContent=a[0];b.onclick=function(){sel(i)};tabs.appendChild(b)});
+function sel(i){$$(".tab").forEach(function(t,j){t.setAttribute("aria-selected",j===i)});$("areaPanel").innerHTML="<h3>"+areas[i][0]+"</h3><p>"+areas[i][1]+'</p><span class="mono">'+areas[i][2]+"</span>"}
+sel(0);$$(".ticker button").forEach(function(b){b.onclick=function(){sel(+b.dataset.area);go("research")}})})();
+
+/* typed */
+(function(){var w=["machine learning","neural networks","language models","computer vision","intelligent systems"],i=0,j=0,d=false,e=$("typed");
+if(reduce){e.textContent=w[0];return}
+(function t(){var s=w[i];j+=d?-1:1;e.textContent=s.slice(0,j);var n=d?35:75;if(!d&&j===s.length){d=true;n=1400}else if(d&&j===0){d=false;i=(i+1)%w.length;n=300}setTimeout(t,n)})()})();
+
+/* neural network canvas */
+(function(){var c=$("neuro"),x=c.getContext("2d"),n=[],W,H,m={x:-999,y:-999};
+function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;n=[];var k=Math.min(70,Math.floor(W*H/14000));for(var i=0;i<k;i++)n.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4})}
+rs();addEventListener("resize",rs);c.parentNode.addEventListener("mousemove",function(e){var r=c.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});
+function f(){x.clearRect(0,0,W,H);n.forEach(function(a,i){if(!reduce){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1}
+for(var j=i+1;j<n.length;j++){var b=n[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){x.strokeStyle="rgba(34,211,238,"+(.28*(1-d/120))+")";x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+var dm=Math.hypot(a.x-m.x,a.y-m.y);x.fillStyle=dm<140?"#22d3ee":"rgba(169,155,255,.8)";x.beginPath();x.arc(a.x,a.y,dm<140?3:2,0,7);x.fill()});
+if(!reduce)requestAnimationFrame(f)}f()})();
+
+/* about */
+$("aboutToggle").onclick=function(){var h=$("aboutExtra").classList.toggle("hidden");this.textContent=h?"Read more about the department":"Show less"};
+
+/* programs */
+(function(){function open(c){var d=c.dataset;$("programPanel").innerHTML="<h3>"+d.title+"</h3><dl><dt>DURATION</dt><dd>"+d.dur+"</dd><dt>ELIGIBILITY</dt><dd>"+d.elig+"</dd><dt>HIGHLIGHTS</dt><dd>"+d.high+"</dd><dt>CAREERS</dt><dd>"+d.career+"</dd></dl>"}
+$$(".program-card").forEach(function(c){c.onclick=function(){open(c)};c.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open(c)}}})})();
+
+/* roadmap */
+(function(){var s=[["Year 1: Foundations","Python programming, linear algebra, probability, statistics and data structures."],["Year 2: Core Machine Learning","Supervised and unsupervised learning, optimisation, data engineering and model evaluation."],["Year 3: Deep Learning","Neural networks, computer vision, NLP, transformers and GPU-based training."],["Year 4: Capstone","Responsible AI, MLOps and deployment, ending in an industry-style capstone project."]];
+function r(i){$$(".step").forEach(function(b,j){b.classList.toggle("on",j===i);b.classList.toggle("done",j<i)});$("stepsFill").style.width=(i/3*100)+"%";$("stepPanel").innerHTML="<h3>"+s[i][0]+"</h3><p>"+s[i][1]+"</p>"}
+$$(".step").forEach(function(b){b.onclick=function(){r(+b.dataset.i)}});r(0)})();
+
+/* faculty */
+(function(){var f=[["Dr. Amit Sharma","Professor","Artificial Intelligence","AS","Machine learning and intelligent systems"],["Dr. Neha Verma","Associate Professor","Data Science","NV","Data mining and analytics"],["Mr. Rahul Singh","Assistant Professor","Computer Vision","RS","Image recognition and vision systems"]],cur=0,box=document.querySelector(".faculty-info"),open=false;
+function r(){var a=f[cur];$("facultyName").textContent=a[0];$("facultyRole").textContent=a[1];$("facultySpec").textContent=a[2];$("facultyInitials").textContent=a[3];$("facultyInterest").textContent=open?"Research interests: "+a[4]+".":"";$("facultyToggle").textContent=open?"Hide research interests":"View research interests";$("facultyCount").textContent=(cur+1)+" / 3";
+$$(".faculty-table tbody tr").forEach(function(t,i){t.classList.toggle("on",i===cur)});box.classList.remove("swap");void box.offsetWidth;box.classList.add("swap")}
+$("facultyNext").onclick=function(){box.style.setProperty("--dir","18px");cur=(cur+1)%3;r()};
+$("facultyPrev").onclick=function(){box.style.setProperty("--dir","-18px");cur=(cur+2)%3;r()};
+$("facultyToggle").onclick=function(){open=!open;r()};
+$("facultyContact").onclick=function(){$("enqMessage").value="I would like to connect with "+f[cur][0]+" regarding "+f[cur][2]+".";go("contact")};
+$$(".faculty-table tbody tr").forEach(function(t,i){t.onclick=function(){cur=i;r()};t.onkeydown=function(e){if(e.key==="Enter"){cur=i;r()}}});r()})();
+
+/* quiz */
+(function(){var q=[["Which type of learning uses labelled examples?",["Supervised learning","Unsupervised learning","Reinforcement learning"],0,"Supervised models learn a mapping from inputs to known labels."],
+["What does a neural network adjust during training?",["Dataset size","Weights and biases","Programming language"],1,"Backpropagation updates weights and biases to reduce loss."],
+["Which architecture powers most modern language models?",["Transformer","Decision tree","K-means"],0,"Transformers use attention to model relationships between tokens."],
+["What is overfitting?",["Model too simple","Model memorises training data","Model trains too fast"],1,"An overfit model scores well on training data but poorly on new data."]],i=0,sc=0;
+function show(){var a=q[i];$("quizStep").textContent="Question "+(i+1)+" of 4";$("quizBar").style.width=(i/4*100)+"%";$("quizQ").textContent=a[0];$("quizNote").textContent="";$("quizNext").disabled=true;$("quizNext").textContent=i===3?"See result":"Next question";$("quizOpts").innerHTML="";
+a[1].forEach(function(o,k){var b=document.createElement("button");b.type="button";b.className="opt";b.textContent=o;b.onclick=function(){$$(".opt").forEach(function(z,m){z.disabled=true;if(m===a[2])z.classList.add("right")});if(k===a[2])sc++;else b.classList.add("wrong");$("quizNote").textContent=(k===a[2]?"Correct! ":"Not quite. ")+a[3];$("quizNext").disabled=false};$("quizOpts").appendChild(b)})}
+$("quizNext").onclick=function(){if(i<3){i++;show();return}$("quizBar").style.width="100%";$("quizStep").textContent="Complete";$("quizQ").textContent="You scored "+sc+" / 4";$("quizOpts").innerHTML="";$("quizNote").textContent=sc>=3?"Excellent: you are ready for the AI programs.":"Good start. Explore our curriculum to learn more.";$("quizNext").textContent="Try again";i=0;sc=0;$("quizNext").onclick=function(){$("quizNext").onclick=null;location.hash="#quiz";$("quizNext").click=0;window.restartQuiz()};if(sc>=3)window.confetti()};
+window.restartQuiz=function(){location.reload()};show()})();
+
+/* fees */
+(function(){var b=$$(".bill-item");function u(){var t=0;b.forEach(function(x){if(x.checked)t+=+x.value});var e=$("billTotal");e.textContent="₹"+t.toLocaleString("en-IN");e.classList.remove("bump");void e.offsetWidth;e.classList.add("bump");return t}
+b.forEach(function(x){x.onchange=u});$("feeAll").onclick=function(){b.forEach(function(x){x.checked=true});u()};$("feeClear").onclick=function(){b.forEach(function(x){x.checked=false});u()};
+$("feeApply").onclick=function(){var t=u();$("enqMessage").value="Please share details for a semester fee of "+$("billTotal").textContent+".";go("contact")}})();
+
+/* contact */
+$("copyMail").onclick=function(){try{navigator.clipboard.writeText("ai@xyzuniversity.edu")}catch(e){}showToast("Email copied")};
+(function(){var form=$("enquiryForm"),msg=$("enquiryMessage");function se(i,t){$("err-"+i).textContent=t}
+form.onsubmit=function(ev){ev.preventDefault();["enqName","enqEmail","enqMobile","enqDate","enqMessage"].forEach(function(i){se(i,"")});msg.className="";msg.textContent="";
+var n=$("enqName").value.trim(),e=$("enqEmail").value.trim(),m=$("enqMobile").value.trim(),d=$("enqDate").value,t=$("enqMessage").value.trim(),ok=true;
+if(!n){se("enqName","Please enter your name.");ok=false}else if(!/^[A-Za-z\s]{2,}$/.test(n)){se("enqName","Name should contain letters only.");ok=false}
+if(!e){se("enqEmail","Please enter an email address.");ok=false}else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){se("enqEmail","Please enter a valid email address.");ok=false}
+if(!m){se("enqMobile","Please enter a mobile number.");ok=false}else if(!/^\d{10}$/.test(m)){se("enqMobile","Enter a valid 10-digit mobile number.");ok=false}
+if(!d){se("enqDate","Please select a date.");ok=false}else{var td=new Date();td.setHours(0,0,0,0);if(new Date(d+"T00:00")<td){se("enqDate","Date cannot be in the past.");ok=false}}
+if(!t){se("enqMessage","Please enter a message.");ok=false}else if(t.length<10){se("enqMessage","Message should be at least 10 characters.");ok=false}
+if(ok){msg.className="success";msg.textContent="Enquiry sent! The department will respond by email shortly.";showToast("Enquiry sent!");confetti();form.reset()}
+else{msg.className="error";msg.textContent="Please fix the highlighted fields and try again.";$$(".form-field").forEach(function(f){var i=f.querySelector("input,textarea");if(i&&f.querySelector(".field-error").textContent){i.classList.remove("shake");void i.offsetWidth;i.classList.add("shake")}})}}})();
+$("newsletter").onsubmit=function(e){e.preventDefault();var v=$("newsEmail").value.trim();if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){showToast("Subscribed to AI updates");$("newsEmail").value=""}else showToast("Enter a valid email")};
+
+/* scroll: progress, to-top, active nav */
+(function(){var links=$$("nav.primary a");function s(){var h=document.documentElement,y=h.scrollTop,t=h.scrollHeight-h.clientHeight;$("scrollProgress").style.width=(t?y/t*100:0)+"%";$("toTop").classList.toggle("show",y>500);
+var cur="home";links.forEach(function(a){var e=document.querySelector(a.getAttribute("href"));if(e&&e.getBoundingClientRect().top<120)cur=a.getAttribute("href")});links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")===cur)})}
+addEventListener("scroll",s,{passive:true});s();$("toTop").onclick=function(){scrollTo({top:0,behavior:reduce?"auto":"smooth"})}})();
+
+/* chatbot */
+(function(){var log=$("chatLog"),ch=$("chat");function add(t,c){var d=document.createElement("div");d.className="msg "+c;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight}
+var kb=[[/program|course|degree|b\.?tech|m\.?tech|bca|mca/,"We offer B.Tech and M.Tech in Artificial Intelligence, plus BCA (AI & Data Science) and MCA (AI & Machine Learning)."],[/fee|cost|price/,"A sample semester: Tuition ₹45,000, Lab ₹6,000, Library ₹3,000, Exam ₹1,500. Try the fee estimator on this page."],[/faculty|professor|teacher/,"Our core faculty: Dr. Amit Sharma (AI), Dr. Neha Verma (Data Science) and Mr. Rahul Singh (Computer Vision)."],[/research|ml|deep|nlp|vision|robot|generative/,"We work on machine learning, deep learning, NLP, computer vision, robotics and generative AI."],[/contact|email|location|where/,"Email ai@xyzuniversity.edu. We are in Jaipur, Rajasthan."],[/hi|hello|hey/,"Hello! Ask me about programs, fees, faculty or research."]];
+function reply(t){var l=t.toLowerCase(),r="I can help with programs, fees, faculty, research and contact details. Try one of those!";for(var i=0;i<kb.length;i++)if(kb[i][0].test(l)){r=kb[i][1];break}setTimeout(function(){add(r,"bot")},400)}
+function send(t){add(t,"me");reply(t)}
+add("Hi! I'm DeptBot, the department's AI assistant. How can I help?","bot");
+["Programs","Fees","Faculty","Research","Contact"].forEach(function(q){var b=document.createElement("button");b.type="button";b.textContent=q;b.onclick=function(){send(q)};$("chatQuick").appendChild(b)});
+function tg(o){ch.classList.toggle("open",o);ch.setAttribute("aria-hidden",!o);if(o)$("chatInput").focus()}
+$("chatFab").onclick=function(){tg(!ch.classList.contains("open"))};$("chatClose").onclick=function(){tg(false)};
+$("chatForm").onsubmit=function(e){e.preventDefault();var v=$("chatInput").value.trim();if(v){send(v);$("chatInput").value=""}}})();
+</script>
+</body>
+</html>

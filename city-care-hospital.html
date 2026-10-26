@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<!-- © 2026 Krishanavtar Sharma. All rights reserved. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Krishanavtar Sharma">
+<meta name="copyright" content="© 2026 Krishanavtar Sharma. All rights reserved.">
+<title>City Care Hospital — Quality Healthcare for Everyone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-950:#0b1a3d;
+    --teal-800:#1c3f94;
+    --teal-600:#2f64d6;
+    --mint-100:#e8eefb;
+    --mint-050:#f4f7fd;
+    --coral:#e07a10;
+    --coral-dark:#b85f08;
+    --ink:#131a2e;
+    --paper:#fbfcff;
+    --card:#fff;
+    --heading:#0b1a3d;
+    --muted:#5a6480;
+    --body:#3b4560;
+    --line:rgba(11,26,61,0.14);
+    --serif:'Newsreader', Georgia, serif;
+    --sans:'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+
+  :focus-visible{
+    outline:2.5px solid var(--coral);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- Top strip ---------- */
+  .topstrip{
+    background:var(--teal-950);
+    color:var(--mint-100);
+    font-size:0.85rem;
+  }
+  .topstrip .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:9px;
+    padding-bottom:9px;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .topstrip .pulse-dot{
+    display:inline-block;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:#8fd0ff;
+    margin-right:7px;
+    box-shadow:0 0 0 0 rgba(143,208,255,0.6);
+    animation:dotpulse 2.2s ease-out infinite;
+  }
+  @keyframes dotpulse{
+    0%{box-shadow:0 0 0 0 rgba(143,208,255,0.55);}
+    70%{box-shadow:0 0 0 7px rgba(143,208,255,0);}
+    100%{box-shadow:0 0 0 0 rgba(143,208,255,0);}
+  }
+  .topstrip .call{
+    font-weight:600;
+    letter-spacing:0.02em;
+  }
+  .topstrip .call a{border-bottom:1px solid rgba(255,255,255,0.35);}
+
+  /* ---------- Header / nav ---------- */
+  header.site{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:40;
+  }
+  header.site .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand-mark{
+    width:40px;height:40px;
+    border-radius:10px;
+    background:var(--teal-800);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .brand-mark svg{width:22px;height:22px;}
+  .brand-name{
+    font-family:var(--serif);
+    font-size:1.32rem;
+    font-weight:600;
+    color:var(--heading);
+    line-height:1.1;
+  }
+  .brand-tag{
+    font-size:0.72rem;
+    color:var(--teal-600);
+    letter-spacing:0.03em;
+  }
+  nav.primary ul{
+    display:flex;
+    gap:34px;
+    font-size:0.95rem;
+    font-weight:500;
+  }
+  nav.primary a{
+    position:relative;
+    padding:4px 0;
+    color:var(--ink);
+  }
+  nav.primary a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:0%;
+    height:2px;
+    background:var(--coral);
+    transition:width 0.25s ease;
+  }
+  nav.primary a:hover::after,
+  nav.primary a:focus-visible::after{width:100%;}
+
+  .nav-cta{
+    background:var(--coral);
+    color:#fff;
+    padding:10px 20px;
+    border-radius:7px;
+    font-weight:600;
+    font-size:0.9rem;
+    white-space:nowrap;
+    transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--coral-dark); transform:translateY(-1px);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 500px at 82% -10%, rgba(47,100,214,0.16), transparent 60%),
+      var(--mint-050);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    position:relative;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+    padding-top:76px;
+    padding-bottom:76px;
+  }
+  .hero-copy{
+    opacity:0;
+    animation:riseIn 0.7s cubic-bezier(.2,.7,.3,1) 0.1s forwards;
+  }
+  .hero-copy h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2.1rem, 4vw, 3.15rem);
+    line-height:1.12;
+    color:var(--heading);
+    letter-spacing:-0.01em;
+  }
+  .hero-copy p.lede{
+    margin-top:20px;
+    font-size:1.08rem;
+    color:var(--body);
+    max-width:46ch;
+  }
+  .hero-actions{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:0.95rem;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary{
+    background:var(--teal-800);
+    color:#fff;
+  }
+  .btn-primary:hover{background:var(--teal-950); transform:translateY(-2px); box-shadow:0 10px 24px -12px rgba(11,26,61,0.5);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--heading);
+    border:1.5px solid var(--line);
+  }
+  .btn-ghost:hover{border-color:var(--teal-600); background:var(--card);}
+
+  .hero-stats{
+    margin-top:44px;
+    display:flex;
+    gap:36px;
+    flex-wrap:wrap;
+  }
+  .hero-stats div strong{
+    display:block;
+    font-family:var(--serif);
+    font-size:1.6rem;
+    color:var(--heading);
+  }
+  .hero-stats div span{
+    font-size:0.82rem;
+    color:var(--muted);
+  }
+
+  .hero-art{
+    opacity:0;
+    animation:riseIn 0.8s cubic-bezier(.2,.7,.3,1) 0.35s forwards;
+    position:relative;
+  }
+  .pulse-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:28px;
+    box-shadow:0 24px 60px -30px rgba(11,26,61,0.35);
+  }
+  .pulse-card svg{width:100%; height:auto; display:block;}
+  .pulse-line{
+    stroke-dasharray:340;
+    stroke-dashoffset:340;
+    animation:drawLine 2.6s ease-out 0.9s forwards, glideLine 3.4s linear 3.6s infinite;
+  }
+  @keyframes drawLine{ to{stroke-dashoffset:0;} }
+  @keyframes glideLine{
+    0%{stroke-dashoffset:0;}
+    100%{stroke-dashoffset:-680;}
+  }
+  .pulse-caption{
+    margin-top:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-size:0.82rem;
+    color:var(--muted);
+  }
+  .pulse-caption strong{color:var(--heading); font-family:var(--serif); font-size:1.05rem;}
+
+  @keyframes riseIn{
+    from{opacity:0; transform:translateY(16px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  /* ---------- Sections generic ---------- */
+  section{
+    padding:88px 0;
+  }
+  .section-head{
+    max-width:56ch;
+    margin-bottom:48px;
+  }
+  .section-head h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(1.7rem, 2.6vw, 2.3rem);
+    color:var(--heading);
+  }
+  .section-head p{
+    margin-top:12px;
+    color:var(--body);
+    font-size:1.02rem;
+  }
+
+  /* ---------- About ---------- */
+  .about{
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+  }
+  .about .wrap{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:64px;
+  }
+  .about-panel{
+    background:var(--teal-950);
+    color:var(--mint-100);
+    border-radius:18px;
+    padding:40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .about-panel::before{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:220px;height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(143,208,255,0.18), transparent 70%);
+  }
+  .about-panel h3{
+    font-family:var(--serif);
+    font-size:1.4rem;
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  .about-panel p{
+    color:rgba(232,238,251,0.82);
+    font-size:0.98rem;
+  }
+  .about-list{
+    margin-top:26px;
+    display:grid;
+    gap:14px;
+  }
+  .about-list li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:0.92rem;
+    color:rgba(232,238,251,0.92);
+  }
+  .about-list li .tick{
+    width:18px;height:18px;
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .about-copy h3{
+    font-family:var(--serif);
+    font-size:1.3rem;
+    color:var(--heading);
+    margin-bottom:10px;
+  }
+  .about-copy p{
+    color:var(--body);
+    margin-bottom:16px;
+  }
+  .about-copy p:last-child{margin-bottom:0;}
+
+  /* ---------- Departments ---------- */
+  .departments{
+    background:var(--mint-050);
+    border-bottom:1px solid var(--line);
+  }
+  .dept-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .dept-card{
+    background:var(--mint-050);
+    padding:30px 22px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    transition:background 0.25s ease;
+  }
+  .dept-card:hover{background:var(--card);}
+  .dept-icon{
+    width:42px;height:42px;
+    border-radius:10px;
+    background:var(--teal-800);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform 0.25s ease, background 0.25s ease;
+  }
+  .dept-card:hover .dept-icon{
+    background:var(--coral);
+    transform:translateY(-3px) rotate(-4deg);
+  }
+  .dept-icon svg{width:21px;height:21px; color:#fff;}
+  .dept-card h3{
+    font-family:var(--serif);
+    font-size:1.06rem;
+    font-weight:600;
+    color:var(--heading);
+  }
+  .dept-card p{
+    font-size:0.85rem;
+    color:var(--muted);
+  }
+
+  @media (max-width:920px){
+    .dept-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:560px){
+    .dept-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Emergency band ---------- */
+  .emergency{
+    background:var(--coral);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .emergency .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:28px;
+    padding-top:44px;
+    padding-bottom:44px;
+    flex-wrap:wrap;
+  }
+  .emergency-left{
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .er-ring{
+    width:58px;height:58px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.16);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    position:relative;
+  }
+  .er-ring::before{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.5);
+    animation:ring-expand 2.4s ease-out infinite;
+  }
+  @keyframes ring-expand{
+    0%{transform:scale(0.85); opacity:0.9;}
+    100%{transform:scale(1.5); opacity:0;}
+  }
+  .er-ring svg{width:26px;height:26px;}
+  .emergency h3{
+    font-family:var(--serif);
+    font-size:1.3rem;
+    font-weight:600;
+  }
+  .emergency p{
+    font-size:0.92rem;
+    color:rgba(255,255,255,0.9);
+    margin-top:2px;
+  }
+  .emergency-number{
+    font-family:var(--serif);
+    font-size:2rem;
+    font-weight:600;
+    letter-spacing:0.01em;
+    border-bottom:2px solid rgba(255,255,255,0.55);
+    padding-bottom:2px;
+    transition:opacity 0.2s ease;
+  }
+  .emergency-number:hover{opacity:0.85;}
+
+  /* ---------- Dynamic greeting badge ---------- */
+  .greeting-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:7px 16px 7px 12px;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--teal-800);
+    margin-bottom:18px;
+  }
+  .greeting-badge .dot{
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--coral);
+    flex-shrink:0;
+  }
+
+  /* ---------- Department spotlight (dynamic content change) ---------- */
+  .dept-spotlight{
+    margin-top:40px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:32px;
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+    justify-content:space-between;
+  }
+  .spotlight-info{display:flex; align-items:center; gap:20px;}
+  .spotlight-icon{
+    width:56px;height:56px;
+    border-radius:12px;
+    background:var(--teal-800);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    transition:background 0.3s ease;
+  }
+  .spotlight-icon svg{width:28px;height:28px;}
+  .spotlight-text h4{
+    font-family:var(--serif);
+    font-size:1.2rem;
+    color:var(--heading);
+    font-weight:600;
+  }
+  .spotlight-text p{
+    font-size:0.9rem;
+    color:var(--muted);
+    margin-top:4px;
+    max-width:40ch;
+  }
+  .spotlight-controls{display:flex; align-items:center; gap:14px;}
+  .spotlight-controls button{
+    width:38px;height:38px;
+    border-radius:50%;
+    border:1.5px solid var(--line);
+    background:var(--card);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .spotlight-controls button:hover{border-color:var(--teal-600); background:var(--mint-050);}
+  .spotlight-controls button svg{width:16px;height:16px;}
+  .spotlight-count{font-size:0.82rem; color:var(--muted); min-width:36px; text-align:center;}
+
+  /* ---------- Specialists (show/hide content) ---------- */
+  .specialists{
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+  }
+  .doctor-card{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:26px;
+    background:var(--mint-050);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:32px;
+    align-items:start;
+  }
+  .doctor-photo{
+    width:84px;height:84px;
+    border-radius:50%;
+    background:var(--teal-800);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .doctor-photo svg{width:40px;height:40px;}
+  .doctor-info h4{
+    font-family:var(--serif);
+    font-size:1.2rem;
+    color:var(--heading);
+    font-weight:600;
+  }
+  .doctor-info .doctor-role{
+    font-size:0.88rem;
+    color:var(--teal-600);
+    font-weight:600;
+    margin-top:2px;
+  }
+  .doctor-info p.doctor-summary{
+    margin-top:12px;
+    font-size:0.92rem;
+    color:var(--body);
+  }
+  .doctor-details{
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    display:grid;
+    gap:8px;
+    font-size:0.9rem;
+    color:var(--body);
+  }
+  .doctor-details.hidden{display:none;}
+  .toggle-btn{
+    margin-top:18px;
+    background:transparent;
+    color:var(--teal-800);
+    border:1.5px solid var(--line);
+    padding:9px 18px;
+    border-radius:7px;
+    font-weight:600;
+    font-size:0.86rem;
+    cursor:pointer;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .toggle-btn:hover{border-color:var(--teal-600); background:var(--card);}
+
+  /* ---------- Bill estimate (dynamic calculation) ---------- */
+  .bill-estimate{
+    background:var(--mint-050);
+    border-bottom:1px solid var(--line);
+  }
+  .bill-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:36px;
+    max-width:640px;
+  }
+  .bill-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:0.96rem;
+  }
+  .bill-row:last-of-type{border-bottom:none;}
+  .bill-row label{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    color:var(--ink);
+  }
+  .bill-row input[type="checkbox"]{
+    width:18px;height:18px;
+    accent-color:var(--teal-800);
+    cursor:pointer;
+  }
+  .bill-row .price{color:var(--muted); font-weight:600;}
+  .bill-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-top:22px;
+    padding-top:22px;
+    border-top:2px solid var(--heading);
+  }
+  .bill-total span{font-size:0.95rem; color:var(--muted); font-weight:600;}
+  .bill-total strong{
+    font-family:var(--serif);
+    font-size:1.8rem;
+    color:var(--heading);
+  }
+
+  /* ---------- Appointment form (form validation) ---------- */
+  .appointment{
+    background:var(--card);
+  }
+  .appointment-form{
+    max-width:640px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .form-field{display:flex; flex-direction:column; gap:6px;}
+  .form-field.full{grid-column:1 / -1;}
+  .form-field label{
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--heading);
+  }
+  .form-field input{
+    border:1.5px solid var(--line);
+    border-radius:8px;
+    padding:11px 14px;
+    font-size:0.95rem;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--mint-050);
+    transition:border-color 0.2s ease;
+  }
+  .form-field input:focus{border-color:var(--teal-600); outline:none;}
+  .form-field .field-error{
+    font-size:0.78rem;
+    color:var(--coral-dark);
+    min-height:1em;
+  }
+  .appointment-form .btn-primary{
+    grid-column:1 / -1;
+    border:none;
+    cursor:pointer;
+    justify-self:start;
+    margin-top:6px;
+  }
+  #appointmentMessage{
+    grid-column:1 / -1;
+    font-size:0.92rem;
+    font-weight:600;
+    padding:12px 16px;
+    border-radius:8px;
+    display:none;
+  }
+  #appointmentMessage.success{
+    display:block;
+    background:rgba(143,208,255,0.22);
+    color:var(--heading);
+  }
+  #appointmentMessage.error{
+    display:block;
+    background:rgba(224,122,16,0.12);
+    color:var(--coral-dark);
+  }
+
+  @media (max-width:640px){
+    .appointment-form{grid-template-columns:1fr;}
+    .doctor-card{grid-template-columns:1fr; text-align:left;}
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--teal-950);
+    color:rgba(232,238,251,0.75);
+    padding:56px 0 28px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+    gap:40px;
+    padding-bottom:36px;
+    border-bottom:1px solid rgba(232,238,251,0.14);
+  }
+  .footer-grid h4{
+    font-family:var(--serif);
+    color:#fff;
+    font-size:1rem;
+    margin-bottom:16px;
+    font-weight:500;
+  }
+  .footer-grid ul{display:grid; gap:10px; font-size:0.88rem;}
+  .footer-grid ul a:hover{color:#fff;}
+  .footer-brand p{
+    font-size:0.88rem;
+    margin-top:10px;
+    max-width:32ch;
+    color:rgba(232,238,251,0.68);
+  }
+  .footer-bottom strong{color:#fff; font-weight:600;}
+  .footer-bottom{
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    font-size:0.8rem;
+    color:rgba(232,238,251,0.5);
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; padding-top:52px; padding-bottom:52px;}
+    .about .wrap{grid-template-columns:1fr; gap:36px;}
+    nav.primary{display:none;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    .footer-grid{grid-template-columns:1fr;}
+    .emergency .wrap{flex-direction:column; align-items:flex-start;}
+  }
+
+  /* ---------- Animations ---------- */
+  .scroll-progress{
+    position:fixed; top:0; left:0; height:3px; width:100%;
+    background:var(--coral);
+    transform:scaleX(0); transform-origin:left;
+    z-index:100; pointer-events:none;
+  }
+  header.site{transition:box-shadow 0.3s ease;}
+  header.site.scrolled{box-shadow:0 10px 30px -22px rgba(11,26,61,0.5);}
+
+  .brand-mark{transition:transform 0.4s cubic-bezier(.2,.7,.3,1);}
+  .brand:hover .brand-mark{transform:rotate(90deg) scale(1.06);}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity 0.7s cubic-bezier(.2,.7,.3,1), transform 0.7s cubic-bezier(.2,.7,.3,1);
+    transition-delay:var(--d, 0s);
+  }
+  .reveal.in{opacity:1; transform:none;}
+
+  .dept-card, .doctor-card, .bill-card, .about-panel{transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.25s ease;}
+  .dept-card:hover{transform:translateY(-4px); box-shadow:0 18px 34px -24px rgba(11,26,61,0.5);}
+  .doctor-card:hover{transform:translateY(-3px); box-shadow:0 22px 44px -30px rgba(11,26,61,0.45);}
+
+  .hero-stats div{opacity:0; animation:riseIn 0.6s cubic-bezier(.2,.7,.3,1) forwards;}
+  .hero-stats div:nth-child(1){animation-delay:0.7s;}
+  .hero-stats div:nth-child(2){animation-delay:0.85s;}
+  .hero-stats div:nth-child(3){animation-delay:1s;}
+  .greeting-badge{animation:badgeIn 0.7s cubic-bezier(.2,.7,.3,1) 0.2s both;}
+  @keyframes badgeIn{
+    from{opacity:0; transform:translateX(-14px);}
+    to{opacity:1; transform:none;}
+  }
+  .pulse-card{animation:floaty 6s ease-in-out 2s infinite;}
+  @keyframes floaty{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+  }
+
+  .btn-primary, .nav-cta{position:relative; overflow:hidden;}
+  .btn-primary::after, .nav-cta::after{
+    content:""; position:absolute; top:0; left:-60%;
+    width:40%; height:100%;
+    background:linear-gradient(100deg, transparent, rgba(255,255,255,0.28), transparent);
+    transform:skewX(-20deg);
+    transition:left 0.6s ease;
+    pointer-events:none;
+  }
+  .btn-primary:hover::after, .nav-cta:hover::after{left:130%;}
+  .btn:active, .nav-cta:active, .toggle-btn:active, .spotlight-controls button:active{transform:scale(0.96);}
+
+  .spotlight-info.swap .spotlight-icon{animation:iconPop 0.5s cubic-bezier(.3,1.5,.5,1);}
+  .spotlight-info.swap .spotlight-text{animation:textSwap 0.45s cubic-bezier(.2,.7,.3,1);}
+  @keyframes iconPop{
+    0%{transform:scale(0.6) rotate(-14deg); opacity:0.3;}
+    100%{transform:scale(1) rotate(0); opacity:1;}
+  }
+  @keyframes textSwap{
+    from{opacity:0; transform:translateX(var(--dir, 18px));}
+    to{opacity:1; transform:none;}
+  }
+
+  .doctor-details:not(.hidden){animation:expandIn 0.45s cubic-bezier(.2,.7,.3,1);}
+  @keyframes expandIn{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:none;}
+  }
+
+  .bill-row{transition:background 0.2s ease, padding-left 0.2s ease;}
+  .bill-row:hover{background:var(--mint-050); padding-left:6px;}
+  .bill-total strong.bump{animation:bump 0.35s ease;}
+  @keyframes bump{
+    0%{transform:scale(1);}
+    40%{transform:scale(1.14); color:var(--coral);}
+    100%{transform:scale(1);}
+  }
+
+  .form-field input{transition:border-color 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;}
+  .form-field input:focus{box-shadow:0 0 0 4px rgba(47,100,214,0.14); transform:translateY(-1px);}
+  .form-field input.shake{animation:shake 0.45s ease; border-color:var(--coral);}
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    20%{transform:translateX(-7px);}
+    40%{transform:translateX(6px);}
+    60%{transform:translateX(-4px);}
+    80%{transform:translateX(3px);}
+  }
+  .form-field .field-error:not(:empty){animation:errIn 0.3s ease;}
+  @keyframes errIn{
+    from{opacity:0; transform:translateY(-4px);}
+    to{opacity:1; transform:none;}
+  }
+  #appointmentMessage.success, #appointmentMessage.error{animation:msgPop 0.5s cubic-bezier(.3,1.4,.5,1);}
+  @keyframes msgPop{
+    from{opacity:0; transform:scale(0.94) translateY(8px);}
+    to{opacity:1; transform:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none;}
+    .hero-stats div{opacity:1;}
+  }
+
+  /* ---------- Dark mode + new widgets ---------- */
+  html[data-theme="dark"]{
+    color-scheme:dark;
+    --ink:#e6ecfa; --paper:#0a1128; --mint-050:#0f1a35; --card:#121d3b;
+    --line:rgba(255,255,255,0.13); --heading:#f1f5ff; --muted:#9aa7c7; --body:#c3cde6;
+    --teal-950:#050b1d; --teal-800:#3d6fe0; --teal-600:#6c9bff;
+  }
+  body, section, header.site, .dept-card, .doctor-card, .bill-card, .tool-card{transition:background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;}
+  .header-actions{display:flex; align-items:center; gap:10px;}
+  .icon-btn{width:38px; height:38px; border-radius:50%; border:1.5px solid var(--line); background:var(--card); color:var(--heading); font-size:1.05rem; cursor:pointer; position:relative; overflow:hidden; transition:transform 0.3s ease, border-color 0.2s;}
+  .icon-btn:hover{border-color:var(--teal-600); transform:rotate(20deg);}
+  .menu-toggle{display:none;}
+  @media (max-width:900px){
+    .menu-toggle{display:inline-block;}
+    nav.primary.open{display:block; position:absolute; top:100%; left:0; right:0; background:var(--paper); border-bottom:1px solid var(--line); padding:12px 32px 20px; animation:menuDrop 0.3s ease;}
+    nav.primary.open ul{flex-direction:column; gap:16px;}
+  }
+  @keyframes menuDrop{from{opacity:0; transform:translateY(-10px);} to{opacity:1; transform:none;}}
+
+  .hero .wrap{position:relative; z-index:1;}
+  .blob{position:absolute; border-radius:50%; filter:blur(60px); opacity:0.35; pointer-events:none;}
+  .blob.b1{width:320px; height:320px; background:var(--teal-600); top:-80px; left:-60px; animation:blobMove 14s ease-in-out infinite;}
+  .blob.b2{width:260px; height:260px; background:var(--coral); bottom:-90px; right:12%; animation:blobMove 17s ease-in-out infinite reverse;}
+  @keyframes blobMove{0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(50px,30px) scale(1.15);}}
+
+  .ticker{background:var(--teal-950); color:var(--mint-100); overflow:hidden; white-space:nowrap; padding:12px 0;}
+  .ticker-track{display:inline-flex; align-items:center; gap:28px; animation:tick 28s linear infinite;}
+  .ticker:hover .ticker-track{animation-play-state:paused;}
+  .ticker button{background:none; border:none; color:inherit; font:600 0.9rem var(--sans); cursor:pointer; letter-spacing:0.03em; transition:color 0.2s;}
+  .ticker button:hover{color:#ffb25c;}
+  .ticker i{color:var(--coral); font-style:normal;}
+  @keyframes tick{to{transform:translateX(-50%);}}
+
+  .section-head h2::after{content:""; display:block; height:3px; width:0; background:var(--coral); margin-top:10px; border-radius:2px; transition:width 0.8s 0.3s cubic-bezier(.2,.7,.3,1);}
+  .section-head.in h2::after{width:56px;}
+
+  .glow{position:relative;}
+  .glow::before{content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; transition:opacity 0.3s; background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(47,100,214,0.16), transparent 70%);}
+  .glow:hover::before{opacity:1;}
+  .dept-card{cursor:pointer;}
+
+  .btn, .toggle-btn, .spotlight-controls button, .to-top, .newsletter button, .faq-q{position:relative; overflow:hidden;}
+  .ripple{position:absolute; border-radius:50%; background:currentColor; opacity:0.3; transform:scale(0); animation:ripple 0.6s ease-out forwards; pointer-events:none;}
+  @keyframes ripple{to{transform:scale(1); opacity:0;}}
+  .dept-card.flash, .dept-spotlight.flash{animation:flash 1.2s ease;}
+  @keyframes flash{0%,100%{box-shadow:0 0 0 0 rgba(224,122,16,0);} 30%{box-shadow:0 0 0 6px rgba(224,122,16,0.35);}}
+  .spot-book{margin-top:12px;}
+  .bill-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px;}
+  .bill-actions .toggle-btn{margin-top:0;}
+  .bill-actions .btn{border:none; cursor:pointer;}
+
+  .tools{background:var(--paper); border-bottom:1px solid var(--line);}
+  .tools-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;}
+  @media (max-width:800px){.tools-grid{grid-template-columns:1fr;}}
+  .tool-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:28px; display:grid; gap:16px;}
+  .tool-card h3{font-family:var(--serif); font-size:1.25rem; color:var(--heading);}
+  .bmi-fields{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .bmi-fields label{display:flex; flex-direction:column; gap:6px; font-size:0.85rem; font-weight:600; color:var(--heading);}
+  .bmi-fields input, .appointment-form select, .newsletter input{border:1.5px solid var(--line); border-radius:8px; padding:11px 14px; font:0.95rem var(--sans); background:var(--mint-050); color:var(--ink);}
+  .bmi-fields input:focus, .appointment-form select:focus{border-color:var(--teal-600); outline:none;}
+  .tool-card .btn{border:none; cursor:pointer; justify-self:start;}
+  .bmi-value{font-family:var(--serif); font-size:2.4rem; font-weight:600; color:var(--heading);}
+  .bmi-bar{height:10px; border-radius:6px; background:linear-gradient(90deg,#5fb0ff 0 18%,#4cc38a 18% 50%,#f2b440 50% 75%,#e0553b 75%); position:relative; margin:8px 0 12px;}
+  .bmi-bar span{position:absolute; top:-5px; left:0; width:4px; height:20px; border-radius:2px; background:var(--heading); transition:left 0.9s cubic-bezier(.2,.7,.3,1);}
+  #bmiText{font-size:0.92rem; color:var(--body);}
+  .muted-note{color:var(--muted); font-size:0.78rem;}
+  #bmiText.err{color:var(--coral-dark); font-weight:600;}
+
+  .faq{display:grid; gap:12px;}
+  .faq-item{background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  .faq-q{width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px; text-align:left; background:none; border:none; padding:18px 20px; font:600 0.95rem var(--sans); color:var(--heading); cursor:pointer;}
+  .faq-q span{font-size:1.3rem; color:var(--coral); transition:transform 0.3s ease;}
+  .faq-item.open .faq-q span{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height 0.4s ease;}
+  .faq-a p{padding:0 20px 18px; font-size:0.9rem; color:var(--body);}
+
+  .testimonials{background:var(--mint-050); border-bottom:1px solid var(--line);}
+  .testimonial-wrap{max-width:680px; position:relative;}
+  .testimonial{display:none; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:32px;}
+  .testimonial.active{display:block; animation:slideFade 0.6s cubic-bezier(.2,.7,.3,1);}
+  @keyframes slideFade{from{opacity:0; transform:translateX(30px);} to{opacity:1; transform:none;}}
+  .testimonial p{font-family:var(--serif); font-size:1.25rem; color:var(--heading); line-height:1.4;}
+  .testimonial strong{display:block; margin-top:18px; color:var(--heading);}
+  .testimonial span{font-size:0.85rem; color:var(--muted);}
+  .testi-controls{display:flex; align-items:center; gap:14px; margin-top:18px;}
+  .testi-controls button{width:38px; height:38px; border-radius:50%; border:1.5px solid var(--line); background:var(--card); color:var(--heading); font-size:1.2rem; cursor:pointer; transition:border-color 0.2s, transform 0.2s;}
+  .testi-controls button:hover{border-color:var(--teal-600); transform:scale(1.08);}
+  .dots{display:flex; gap:8px;}
+  .dots button{width:10px; height:10px; padding:0; background:var(--line); border:none; transition:width 0.3s, background 0.3s;}
+  .dots button.on{width:26px; border-radius:6px; background:var(--coral);}
+
+  .newsletter{display:flex; gap:8px; margin-top:16px; max-width:340px;}
+  .newsletter input{flex:1; min-width:0; padding:9px 12px; font-size:0.85rem;}
+  .newsletter button{background:var(--coral); color:#fff; border:none; border-radius:8px; padding:0 16px; font-weight:600; cursor:pointer; transition:background 0.2s;}
+  .newsletter button:hover{background:var(--coral-dark);}
+  .newsletter.bad input{border-color:var(--coral); animation:shake 0.45s ease;}
+
+  .to-top{position:fixed; right:22px; bottom:22px; width:46px; height:46px; border-radius:50%; border:none; background:var(--teal-800); color:#fff; font-size:1.2rem; cursor:pointer; z-index:60; opacity:0; transform:translateY(20px) scale(0.8); pointer-events:none; transition:opacity 0.3s, transform 0.3s, background 0.2s; box-shadow:0 12px 24px -10px rgba(11,26,61,0.6);}
+  .to-top.show{opacity:1; transform:none; pointer-events:auto;}
+  .to-top:hover{background:var(--coral);}
+  .toasts{position:fixed; left:50%; bottom:24px; transform:translateX(-50%); display:grid; gap:10px; z-index:200; width:min(92vw,380px);}
+  .toast{background:var(--teal-950); color:#fff; padding:13px 18px; border-radius:10px; font-size:0.9rem; font-weight:500; box-shadow:0 16px 32px -14px rgba(0,0,0,0.5); border-left:4px solid #4cc38a; animation:toastIn 0.4s cubic-bezier(.3,1.4,.5,1);}
+  .toast.err{border-left-color:var(--coral);}
+  .toast.out{animation:toastOut 0.3s ease forwards;}
+  @keyframes toastIn{from{opacity:0; transform:translateY(20px) scale(0.95);} to{opacity:1; transform:none;}}
+  @keyframes toastOut{to{opacity:0; transform:translateY(10px);}}
+  .confetti{position:fixed; top:40%; left:50%; width:9px; height:14px; z-index:300; pointer-events:none; animation:confetti 1.4s cubic-bezier(.2,.7,.4,1) forwards;}
+  @keyframes confetti{to{transform:translate(var(--dx),var(--dy)) rotate(var(--r)); opacity:0;}}
+  @media (prefers-reduced-motion: reduce){.ticker-track{animation:none;} .blob{animation:none;}}
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="wrap">
+    <div><span class="pulse-dot" aria-hidden="true"></span>24/7 emergency care available</div>
+    <div class="call">Emergency line: <a href="tel:9876543210">98765 43210</a></div>
+  </div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="#e8eefb" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div class="brand-name">City Care Hospital</div>
+        <div class="brand-tag">Quality healthcare for everyone</div>
+      </div>
+    </div>
+    <nav class="primary" aria-label="Primary">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#specialists">Doctors</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="themeToggle" aria-label="Switch dark mode">☾</button>
+      <a class="nav-cta" href="tel:9876543210">Call now</a>
+      <button type="button" class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <span class="blob b1" aria-hidden="true"></span><span class="blob b2" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="greeting-badge" id="greetingBadge"><span class="dot" aria-hidden="true"></span><span id="greetingText">Welcome to City Care Hospital</span></div>
+      <h1>Care that shows up when you need it most.</h1>
+      <p class="lede">City Care Hospital brings together experienced doctors, trained staff, and modern facilities — so every visit, planned or urgent, gets the same steady attention.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#appointment">Book an appointment</a>
+        <a class="btn btn-ghost" href="#services">View our services</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>24/7</strong><span>Emergency response</span></div>
+        <div><strong>5</strong><span>Core departments</span></div>
+        <div><strong>1000+</strong><span>Patients cared for yearly</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="pulse-card">
+        <svg viewBox="0 0 320 120" fill="none">
+          <path d="M0 60 H70 L88 20 L108 100 L128 40 L142 60 H320" stroke="#2f64d6" stroke-width="3" class="pulse-line" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="pulse-caption">
+          <span>Live vitals monitoring</span>
+          <strong>Stable</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="ticker" aria-label="Departments">
+  <div class="ticker-track">
+    <button type="button" data-dept="0">Cardiology</button><i>✚</i><button type="button" data-dept="1">Neurology</button><i>✚</i><button type="button" data-dept="2">Orthopedics</button><i>✚</i><button type="button" data-dept="3">General Medicine</button><i>✚</i><button type="button" data-dept="4">Pediatrics</button><i>✚</i>
+    <button type="button" data-dept="0">Cardiology</button><i>✚</i><button type="button" data-dept="1">Neurology</button><i>✚</i><button type="button" data-dept="2">Orthopedics</button><i>✚</i><button type="button" data-dept="3">General Medicine</button><i>✚</i><button type="button" data-dept="4">Pediatrics</button><i>✚</i>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-panel">
+      <h3>About the hospital</h3>
+      <p>A multi-department facility built around one idea: healthcare should feel unhurried, even when it isn't.</p>
+      <ul class="about-list">
+        <li><svg class="tick" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#8fd0ff" stroke-width="1.4"/><path d="M6 10l2.5 2.5L14 7" stroke="#8fd0ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Experienced doctors across five departments</li>
+        <li><svg class="tick" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#8fd0ff" stroke-width="1.4"/><path d="M6 10l2.5 2.5L14 7" stroke="#8fd0ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Trained nursing and support staff</li>
+        <li><svg class="tick" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#8fd0ff" stroke-width="1.4"/><path d="M6 10l2.5 2.5L14 7" stroke="#8fd0ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Modern diagnostic and treatment facilities</li>
+      </ul>
+    </div>
+    <div class="about-copy">
+      <h3>Modern facilities, familiar faces</h3>
+      <p>City Care Hospital was built to close the gap between advanced medicine and genuine attention. Our teams work across cardiology, neurology, orthopedics, general medicine, and pediatrics, with equipment and protocols kept current so decisions aren't slowed down by outdated tools.</p>
+      <p>Whether it's a routine check-up or something that can't wait until Monday, the same standard of care applies — clear communication, careful diagnosis, and a plan you actually understand before you leave.</p>
+    </div>
+  </div>
+</section>
+
+<section class="departments" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Our departments</h2>
+      <p>Five core departments, each staffed by specialists who treat the person in front of them, not just the chart.</p>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card">
+        <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20 8.5c0 5-8 10.5-8 10.5S4 13.5 4 8.5a4.5 4.5 0 018-2.6A4.5 4.5 0 0120 8.5z" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Cardiology</h3>
+        <p>Heart health screening, diagnosis, and ongoing care.</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5c-2 0-3.5 1.6-3.5 3.6 0 1 .4 1.9 1 2.5-.6.6-1 1.5-1 2.5C4.5 15.6 6 17 8 17M16 5c2 0 3.5 1.6 3.5 3.6 0 1-.4 1.9-1 2.5.6.6 1 1.5 1 2.5 0 2-1.5 3.4-3.5 3.4M12 5v14" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3>Neurology</h3>
+        <p>Care for the brain, spine, and nervous system.</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 18l4-10 2 5 2-5 4 10M6 18h12" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Orthopedics</h3>
+        <p>Bone, joint, and muscle treatment and recovery.</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M9 9h6M9 13h6M9 17h3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>General Medicine</h3>
+        <p>Everyday health concerns and preventive checkups.</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3" stroke="#fff" stroke-width="1.6"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Pediatrics</h3>
+        <p>Gentle, attentive care for infants and children.</p>
+      </div>
+    </div>
+
+    <div class="dept-spotlight">
+      <div class="spotlight-info">
+        <div class="spotlight-icon" id="spotlightIcon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M20 8.5c0 5-8 10.5-8 10.5S4 13.5 4 8.5a4.5 4.5 0 018-2.6A4.5 4.5 0 0120 8.5z" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="spotlight-text">
+          <h4 id="spotlightTitle">Cardiology</h4>
+          <p id="spotlightDesc">Heart health screening, diagnosis, and ongoing care.</p>
+          <button type="button" class="toggle-btn spot-book" id="spotBook">Book this department</button>
+        </div>
+      </div>
+      <div class="spotlight-controls">
+        <button type="button" id="spotlightPrev" aria-label="Previous department">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="#1c3f94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="spotlight-count" id="spotlightCount">1 / 5</span>
+        <button type="button" id="spotlightNext" aria-label="Next department">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="#1c3f94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="specialists" id="specialists">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Meet our specialists</h2>
+      <p>A closer look at the people behind your care.</p>
+    </div>
+    <div class="doctor-card">
+      <div class="doctor-photo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#fff" stroke-width="1.6"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="doctor-info">
+        <h4>Dr. Ananya Sharma</h4>
+        <div class="doctor-role">Senior Cardiologist, MD (Cardiology)</div>
+        <p class="doctor-summary">Leads the cardiology department, focused on preventive heart care and long-term patient follow-up.</p>
+        <div class="doctor-details hidden" id="doctorDetails">
+          <p><strong>Experience:</strong> 14 years in interventional and preventive cardiology.</p>
+          <p><strong>Availability:</strong> Mon–Sat, 9:00 AM – 4:00 PM.</p>
+          <p><strong>Specializations:</strong> Angioplasty, ECG diagnostics, cardiac rehabilitation.</p>
+        </div>
+        <button type="button" class="toggle-btn" id="doctorToggle">Read more</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tools" id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Health tools &amp; quick answers</h2>
+      <p>Check your BMI in seconds, and find answers to common questions.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card glow">
+        <h3>BMI calculator</h3>
+        <div class="bmi-fields">
+          <label>Height (cm)<input type="number" id="bmiHeight" placeholder="e.g. 170" min="50" max="250"></label>
+          <label>Weight (kg)<input type="number" id="bmiWeight" placeholder="e.g. 65" min="10" max="300"></label>
+        </div>
+        <button type="button" class="btn btn-primary" id="bmiCalc">Calculate BMI</button>
+        <div class="bmi-result" id="bmiResult" aria-live="polite">
+          <div class="bmi-value" id="bmiValue">–</div>
+          <div class="bmi-bar"><span id="bmiMarker"></span></div>
+          <p id="bmiText">Enter your height and weight to see your result.</p>
+        </div>
+        <small class="muted-note">A general indicator only, not a diagnosis. Talk to a doctor for advice.</small>
+      </div>
+      <div class="faq" id="faq">
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Do I need an appointment for an emergency?<span>+</span></button><div class="faq-a"><p>No. Our emergency services run round the clock and no appointment is needed.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">How do I book an appointment?<span>+</span></button><div class="faq-a"><p>Use the “Book an appointment” form on this page and our team will confirm your slot shortly.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Which departments do you have?<span>+</span></button><div class="faq-a"><p>Cardiology, Neurology, Orthopedics, General Medicine and Pediatrics.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Can I estimate my visit cost first?<span>+</span></button><div class="faq-a"><p>Yes. Use the “Estimate your visit cost” section to select services and see an approximate total.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bill-estimate" id="bill-estimate">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Estimate your visit cost</h2>
+      <p>Select the services you expect to need and see an approximate total before you visit.</p>
+    </div>
+    <div class="bill-card">
+      <div class="bill-row">
+        <label><input type="checkbox" class="bill-item" value="500" data-name="Consultation"> Consultation</label>
+        <span class="price">₹500</span>
+      </div>
+      <div class="bill-row">
+        <label><input type="checkbox" class="bill-item" value="300" data-name="Blood Test"> Blood Test</label>
+        <span class="price">₹300</span>
+      </div>
+      <div class="bill-row">
+        <label><input type="checkbox" class="bill-item" value="700" data-name="X-Ray"> X-Ray</label>
+        <span class="price">₹700</span>
+      </div>
+      <div class="bill-total">
+        <span>Estimated total</span>
+        <strong id="billTotal">₹0</strong>
+      </div>
+      <div class="bill-actions">
+        <button type="button" class="toggle-btn" id="billClear">Clear all</button>
+        <button type="button" class="btn btn-primary" id="billBook">Book with these services</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appointment" id="appointment">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Book an appointment</h2>
+      <p>Fill in your details and our team will confirm your slot shortly.</p>
+    </div>
+    <form class="appointment-form" id="appointmentForm" novalidate>
+      <div class="form-field">
+        <label for="patientName">Patient name</label>
+        <input type="text" id="patientName" placeholder="Full name">
+        <span class="field-error" id="err-patientName"></span>
+      </div>
+      <div class="form-field">
+        <label for="patientEmail">Email</label>
+        <input type="text" id="patientEmail" placeholder="you@example.com">
+        <span class="field-error" id="err-patientEmail"></span>
+      </div>
+      <div class="form-field">
+        <label for="patientMobile">Mobile number</label>
+        <input type="text" id="patientMobile" placeholder="10-digit number">
+        <span class="field-error" id="err-patientMobile"></span>
+      </div>
+      <div class="form-field">
+        <label for="patientAge">Age</label>
+        <input type="text" id="patientAge" placeholder="Age in years">
+        <span class="field-error" id="err-patientAge"></span>
+      </div>
+      <div class="form-field full">
+        <label for="appointmentDate">Appointment date</label>
+        <input type="date" id="appointmentDate">
+        <span class="field-error" id="err-appointmentDate"></span>
+      </div>
+      <div class="form-field full">
+        <label for="appointmentDept">Department (optional)</label>
+        <select id="appointmentDept"><option value="">Choose a department</option><option>Cardiology</option><option>Neurology</option><option>Orthopedics</option><option>General Medicine</option><option>Pediatrics</option></select>
+      </div>
+      <button type="submit" class="btn btn-primary">Confirm appointment</button>
+      <p id="appointmentMessage"></p>
+    </form>
+  </div>
+</section>
+
+
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What patients say</h2>
+      <p>Sample feedback shown for layout purposes.</p>
+    </div>
+    <div class="testimonial-wrap" id="testiWrap">
+      <div class="testimonial glow active"><p>“The staff explained everything clearly and I never felt rushed.”</p><strong>Rohit M.</strong><span>Cardiology patient</span></div>
+      <div class="testimonial glow"><p>“Booking was simple, and the team was kind to my child throughout.”</p><strong>Priya S.</strong><span>Pediatrics parent</span></div>
+      <div class="testimonial glow"><p>“Quick, careful care when we needed it most. Thank you.”</p><strong>Amit K.</strong><span>Emergency visit</span></div>
+      <div class="testi-controls">
+        <button type="button" id="testiPrev" aria-label="Previous review">‹</button>
+        <span class="dots" id="testiDots"></span>
+        <button type="button" id="testiNext" aria-label="Next review">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="emergency" id="doctors">
+  <div class="wrap">
+    <div class="emergency-left">
+      <div class="er-ring"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg></div>
+      <div>
+        <h3>Emergency services, every hour</h3>
+        <p>Round-the-clock care from our on-call doctors and emergency staff — no appointment needed.</p>
+      </div>
+    </div>
+    <a class="emergency-number" href="tel:9876543210">98765 43210</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>City Care Hospital</h4>
+        <p>Modern healthcare facilities with experienced doctors and trained medical staff, open every day of the year.</p>
+        <form class="newsletter" id="newsletter" novalidate>
+          <input type="text" id="newsEmail" placeholder="Email for health tips" aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About hospital</a></li>
+          <li><a href="#specialists">Doctors</a></li>
+          <li><a href="#services">Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Departments</h4>
+        <ul>
+          <li><a href="#services" data-dept="0">Cardiology</a></li>
+          <li><a href="#services" data-dept="1">Neurology</a></li>
+          <li><a href="#services" data-dept="2">Orthopedics</a></li>
+          <li><a href="#services" data-dept="4">Pediatrics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Emergency: <a href="tel:9876543210">98765 43210</a></li>
+          <li><a href="mailto:care@citycarehospital.example">care@citycarehospital.example</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 City Care Hospital. All rights reserved. Created by <strong>Krishanavtar Sharma</strong>.</span>
+      <span>Built for quality care, every day.</span>
+    </div>
+  </div>
+</footer>
+
+<button type="button" class="to-top" id="toTop" aria-label="Back to top">↑</button>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   0. Animations: scroll reveal, count-up, scroll progress
+   ============================================================ */
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Animate a number from its current value to a target (used by bill total + hero stats)
+  window.countTo = function(el, target, duration, prefix, suffix){
+    prefix = prefix || ""; suffix = suffix || "";
+    var from = parseInt((el.textContent || "").replace(/[^\d]/g, ""), 10) || 0;
+    if (reduce || from === target) { el.textContent = prefix + target + suffix; return; }
+    var start = null;
+    function step(ts){
+      if (start === null) start = ts;
+      var t = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = prefix + Math.round(from + (target - from) * eased) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  };
+
+  // Scroll reveal
+  var groups = [
+    ".about-panel, .about-copy",
+    ".section-head",
+    ".dept-card",
+    ".dept-spotlight",
+    ".doctor-card",
+    ".bill-card",
+    ".tool-card",
+    ".testimonial-wrap",
+    ".faq-item",
+    ".appointment-form",
+    ".emergency .wrap > *",
+    ".footer-bottom"
+  ];
+  var targets = [];
+  groups.forEach(function(sel){
+    document.querySelectorAll(sel).forEach(function(el, i){
+      el.classList.add("reveal");
+      el.style.setProperty("--d", (i % 5) * 0.09 + "s");
+      targets.push(el);
+    });
+  });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.15, rootMargin: "0px 0px -40px 0px"});
+    targets.forEach(function(el){ io.observe(el); });
+  } else {
+    targets.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  // Hero stats count-up
+  document.querySelectorAll(".hero-stats strong").forEach(function(el){
+    var m = el.textContent.trim().match(/^(\d+)(\+?)$/);
+    if (!m) return;
+    var target = parseInt(m[1], 10), suffix = m[2];
+    el.textContent = "0" + suffix;
+    setTimeout(function(){ window.countTo(el, target, 1400, "", suffix); }, 800);
+  });
+
+  // Scroll progress bar + header shadow
+  var bar = document.getElementById("scrollProgress");
+  var header = document.querySelector("header.site");
+  var ticking = false;
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = "scaleX(" + (h > 0 ? window.scrollY / h : 0) + ")";
+    header.classList.toggle("scrolled", window.scrollY > 10);
+    ticking = false;
+  }
+  window.addEventListener("scroll", function(){
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, {passive:true});
+  onScroll();
+})();
+/* ============================================================
+   1. Dynamic Greeting / Time-Based Message
+   ============================================================ */
+(function(){
+  var hour = new Date().getHours();
+  var greeting;
+  if (hour < 12) {
+    greeting = "Good Morning! Welcome to City Care Hospital.";
+  } else if (hour < 18) {
+    greeting = "Good Afternoon! Welcome to City Care Hospital.";
+  } else {
+    greeting = "Good Evening! Welcome to City Care Hospital.";
+  }
+  document.getElementById("greetingText").textContent = greeting;
+})();
+
+/* ============================================================
+   2. Department Spotlight — Dynamic Content Change
+   ============================================================ */
+(function(){
+  var departments = [
+    {
+      name: "Cardiology",
+      desc: "Heart health screening, diagnosis, and ongoing care.",
+      icon: '<svg viewBox="0 0 24 24" fill="none"><path d="M20 8.5c0 5-8 10.5-8 10.5S4 13.5 4 8.5a4.5 4.5 0 018-2.6A4.5 4.5 0 0120 8.5z" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    },
+    {
+      name: "Neurology",
+      desc: "Care for the brain, spine, and nervous system.",
+      icon: '<svg viewBox="0 0 24 24" fill="none"><path d="M8 5c-2 0-3.5 1.6-3.5 3.6 0 1 .4 1.9 1 2.5-.6.6-1 1.5-1 2.5C4.5 15.6 6 17 8 17M16 5c2 0 3.5 1.6 3.5 3.6 0 1-.4 1.9-1 2.5.6.6 1 1.5 1 2.5 0 2-1.5 3.4-3.5 3.4M12 5v14" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>'
+    },
+    {
+      name: "Orthopedics",
+      desc: "Bone, joint, and muscle treatment and recovery.",
+      icon: '<svg viewBox="0 0 24 24" fill="none"><path d="M6 18l4-10 2 5 2-5 4 10M6 18h12" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    },
+    {
+      name: "General Medicine",
+      desc: "Everyday health concerns and preventive checkups.",
+      icon: '<svg viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M9 9h6M9 13h6M9 17h3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>'
+    },
+    {
+      name: "Pediatrics",
+      desc: "Gentle, attentive care for infants and children.",
+      icon: '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3" stroke="#fff" stroke-width="1.6"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>'
+    }
+  ];
+  var current = 0;
+  var titleEl = document.getElementById("spotlightTitle");
+  var descEl = document.getElementById("spotlightDesc");
+  var iconEl = document.getElementById("spotlightIcon");
+  var countEl = document.getElementById("spotlightCount");
+
+  function render() {
+    var dept = departments[current];
+    titleEl.textContent = dept.name;
+    descEl.textContent = dept.desc;
+    iconEl.innerHTML = dept.icon;
+    countEl.textContent = (current + 1) + " / " + departments.length;
+    var info = document.querySelector(".spotlight-info");
+    info.classList.remove("swap");
+    void info.offsetWidth;
+    info.classList.add("swap");
+  }
+
+  document.getElementById("spotlightNext").addEventListener("click", function(){
+    document.querySelector(".spotlight-info").style.setProperty("--dir", "18px");
+    current = (current + 1) % departments.length;
+    render();
+  });
+  document.getElementById("spotlightPrev").addEventListener("click", function(){
+    document.querySelector(".spotlight-info").style.setProperty("--dir", "-18px");
+    current = (current - 1 + departments.length) % departments.length;
+    render();
+  });
+
+  render();
+  window.showDepartment = function(i){ current = i; render(); };
+  window.currentDept = function(){ return departments[current].name; };
+})();
+
+/* ============================================================
+   3. Show / Hide Doctor Details
+   ============================================================ */
+(function(){
+  var details = document.getElementById("doctorDetails");
+  var toggle = document.getElementById("doctorToggle");
+  toggle.addEventListener("click", function(){
+    var isHidden = details.classList.contains("hidden");
+    if (isHidden) {
+      details.classList.remove("hidden");
+      toggle.textContent = "Read less";
+    } else {
+      details.classList.add("hidden");
+      toggle.textContent = "Read more";
+    }
+  });
+})();
+
+/* ============================================================
+   4. Dynamic Bill / Price Calculation
+   ============================================================ */
+(function(){
+  var checkboxes = document.querySelectorAll(".bill-item");
+  var totalEl = document.getElementById("billTotal");
+
+  function updateTotal() {
+    var total = 0;
+    checkboxes.forEach(function(box){
+      if (box.checked) {
+        total += Number(box.value);
+      }
+    });
+    window.countTo(totalEl, total, 450, "₹");
+    totalEl.classList.remove("bump");
+    void totalEl.offsetWidth;
+    totalEl.classList.add("bump");
+  }
+
+  checkboxes.forEach(function(box){
+    box.addEventListener("change", updateTotal);
+  });
+})();
+
+/* ============================================================
+   5. Appointment Form Validation
+   ============================================================ */
+(function(){
+  var form = document.getElementById("appointmentForm");
+  var message = document.getElementById("appointmentMessage");
+
+  function setError(fieldId, text) {
+    document.getElementById("err-" + fieldId).textContent = text;
+  }
+
+  function clearErrors() {
+    ["patientName","patientEmail","patientMobile","patientAge","appointmentDate"].forEach(function(id){
+      setError(id, "");
+    });
+    message.className = "";
+    message.textContent = "";
+  }
+
+  form.addEventListener("submit", function(event){
+    event.preventDefault();
+    clearErrors();
+
+    var name = document.getElementById("patientName").value.trim();
+    var email = document.getElementById("patientEmail").value.trim();
+    var mobile = document.getElementById("patientMobile").value.trim();
+    var age = document.getElementById("patientAge").value.trim();
+    var date = document.getElementById("appointmentDate").value;
+
+    var valid = true;
+
+    // Required field + name validation (letters and spaces only)
+    if (name === "") {
+      setError("patientName", "Please enter the patient's name.");
+      valid = false;
+    } else if (!/^[A-Za-z\s]{2,}$/.test(name)) {
+      setError("patientName", "Name should contain letters only.");
+      valid = false;
+    }
+
+    // Email validation
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "") {
+      setError("patientEmail", "Please enter an email address.");
+      valid = false;
+    } else if (!emailPattern.test(email)) {
+      setError("patientEmail", "Please enter a valid email address.");
+      valid = false;
+    }
+
+    // Mobile number validation (10 digits)
+    if (mobile === "") {
+      setError("patientMobile", "Please enter a mobile number.");
+      valid = false;
+    } else if (!/^\d{10}$/.test(mobile)) {
+      setError("patientMobile", "Enter a valid 10-digit mobile number.");
+      valid = false;
+    }
+
+    // Age validation
+    if (age === "") {
+      setError("patientAge", "Please enter age.");
+      valid = false;
+    } else if (isNaN(age) || Number(age) < 1 || Number(age) > 120) {
+      setError("patientAge", "Enter a valid age (1–120).");
+      valid = false;
+    }
+
+    // Appointment date validation (required, not in the past)
+    if (date === "") {
+      setError("appointmentDate", "Please select a date.");
+      valid = false;
+    } else {
+      var today = new Date();
+      today.setHours(0,0,0,0);
+      var chosen = new Date(date);
+      if (chosen < today) {
+        setError("appointmentDate", "Date cannot be in the past.");
+        valid = false;
+      }
+    }
+
+    if (valid) {
+      message.className = "success";
+      message.textContent = "Appointment request received! Our team will confirm shortly.";
+      window.showToast("Appointment request received!"); window.confetti();
+      form.reset();
+    } else {
+      message.className = "error";
+      message.textContent = "Please fix the highlighted fields and try again.";
+      form.querySelectorAll(".form-field").forEach(function(f){
+        var input = f.querySelector("input");
+        if (input && f.querySelector(".field-error").textContent !== "") {
+          input.classList.remove("shake");
+          void input.offsetWidth;
+          input.classList.add("shake");
+        }
+      });
+    }
+  });
+})();
+/* ============================================================
+   6. Widgets: theme, menu, buttons, BMI, FAQ, testimonials
+   ============================================================ */
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+
+  // Toasts + confetti
+  window.showToast = function(msg, bad){
+    var t = document.createElement("div");
+    t.className = "toast" + (bad ? " err" : "");
+    t.textContent = msg;
+    $("toasts").appendChild(t);
+    setTimeout(function(){ t.classList.add("out"); setTimeout(function(){ t.remove(); }, 300); }, 3000);
+  };
+  window.confetti = function(){
+    var colors = ["#e07a10","#2f64d6","#8fd0ff","#4cc38a","#f2b440"];
+    for (var i = 0; i < 40; i++) {
+      var c = document.createElement("span");
+      c.className = "confetti";
+      c.style.background = colors[i % colors.length];
+      c.style.setProperty("--dx", (Math.random() * 600 - 300) + "px");
+      c.style.setProperty("--dy", (Math.random() * 400 + 100) + "px");
+      c.style.setProperty("--r", (Math.random() * 720 - 360) + "deg");
+      document.body.appendChild(c);
+      setTimeout(function(el){ el.remove(); }, 1500, c);
+    }
+  };
+
+  // Dark mode
+  var root = document.documentElement, themeBtn = $("themeToggle");
+  function setTheme(t){
+    root.setAttribute("data-theme", t);
+    themeBtn.textContent = t === "dark" ? "☀" : "☾";
+    try { localStorage.setItem("ccTheme", t); } catch(e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("ccTheme"); } catch(e) {}
+  if (saved) setTheme(saved);
+  themeBtn.addEventListener("click", function(){
+    setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+  });
+
+  // Mobile menu
+  var nav = document.querySelector("nav.primary"), menuBtn = $("menuToggle");
+  menuBtn.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+    menuBtn.textContent = open ? "✕" : "☰";
+  });
+  nav.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ nav.classList.remove("open"); menuBtn.textContent = "☰"; });
+  });
+
+  // Ripple on buttons + cursor glow
+  document.addEventListener("pointerdown", function(e){
+    var b = e.target.closest(".btn, .toggle-btn, .icon-btn, .to-top, .faq-q, .newsletter button, .spotlight-controls button");
+    if (!b) return;
+    var r = b.getBoundingClientRect(), size = Math.max(r.width, r.height) * 2;
+    var d = document.createElement("span");
+    d.className = "ripple";
+    d.style.cssText = "width:"+size+"px;height:"+size+"px;left:"+(e.clientX-r.left-size/2)+"px;top:"+(e.clientY-r.top-size/2)+"px";
+    b.appendChild(d);
+    setTimeout(function(){ d.remove(); }, 600);
+  });
+  document.querySelectorAll(".dept-card, .doctor-card, .bill-card").forEach(function(el){ el.classList.add("glow"); });
+  document.addEventListener("pointermove", function(e){
+    var el = e.target.closest && e.target.closest(".glow");
+    if (!el) return;
+    var r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    el.style.setProperty("--my", (e.clientY - r.top) + "px");
+  });
+
+  // Phone links: copy number on desktop, call on touch devices
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+        e.preventDefault();
+        var num = a.getAttribute("href").replace("tel:", "");
+        if (navigator.clipboard) navigator.clipboard.writeText(num).catch(function(){});
+        window.showToast("Emergency number " + num + " copied. On a phone this will dial.");
+      }
+    });
+  });
+
+  // Departments: clickable cards, ticker and footer links
+  function goDept(i, scroll){
+    window.showDepartment(i);
+    var sp = document.querySelector(".dept-spotlight");
+    if (scroll) sp.scrollIntoView({behavior:"smooth", block:"center"});
+    sp.classList.remove("flash"); void sp.offsetWidth; sp.classList.add("flash");
+  }
+  document.querySelectorAll(".dept-card").forEach(function(card, i){
+    card.setAttribute("role", "button"); card.setAttribute("tabindex", "0");
+    card.addEventListener("click", function(){ goDept(i, true); });
+    card.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goDept(i, true); } });
+  });
+  document.querySelectorAll("[data-dept]").forEach(function(el){
+    el.addEventListener("click", function(e){ e.preventDefault(); goDept(Number(el.getAttribute("data-dept")), true); });
+  });
+  $("spotBook").addEventListener("click", function(){
+    $("appointmentDept").value = window.currentDept();
+    $("appointment").scrollIntoView({behavior:"smooth"});
+    window.showToast("Department set to " + window.currentDept());
+  });
+
+  // Bill buttons
+  $("billClear").addEventListener("click", function(){
+    document.querySelectorAll(".bill-item").forEach(function(b){ b.checked = false; });
+    document.querySelector(".bill-item").dispatchEvent(new Event("change"));
+    window.showToast("Selection cleared");
+  });
+  $("billBook").addEventListener("click", function(){
+    var names = [];
+    document.querySelectorAll(".bill-item:checked").forEach(function(b){ names.push(b.getAttribute("data-name")); });
+    if (!names.length) { window.showToast("Select at least one service first", true); return; }
+    window.showToast("Services: " + names.join(", ") + " (" + $("billTotal").textContent + ")");
+    $("appointment").scrollIntoView({behavior:"smooth"});
+  });
+
+  // BMI calculator
+  $("bmiCalc").addEventListener("click", function(){
+    var h = parseFloat($("bmiHeight").value), w = parseFloat($("bmiWeight").value);
+    var text = $("bmiText");
+    text.classList.remove("err");
+    if (!(h >= 50 && h <= 250) || !(w >= 10 && w <= 300)) {
+      text.textContent = "Please enter a height of 50–250 cm and a weight of 10–300 kg.";
+      text.classList.add("err");
+      return;
+    }
+    var bmi = w / Math.pow(h / 100, 2);
+    var cat = bmi < 18.5 ? "Underweight" : bmi < 25 ? "Healthy weight" : bmi < 30 ? "Overweight" : "Obese range";
+    var val = $("bmiValue"), start = null;
+    function step(ts){
+      if (start === null) start = ts;
+      var t = Math.min((ts - start) / 900, 1);
+      val.textContent = (bmi * (1 - Math.pow(1 - t, 3))).toFixed(1);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    $("bmiMarker").style.left = Math.min(Math.max((bmi - 12) / 28, 0), 1) * 96 + "%";
+    text.textContent = "Your BMI is in the “" + cat + "” range.";
+  });
+
+  // FAQ accordion
+  document.querySelectorAll(".faq-q").forEach(function(q){
+    q.addEventListener("click", function(){
+      var item = q.parentElement, a = item.querySelector(".faq-a");
+      var open = !item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(function(o){
+        o.classList.remove("open"); o.querySelector(".faq-a").style.maxHeight = null;
+        o.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+      });
+      if (open) { item.classList.add("open"); a.style.maxHeight = a.scrollHeight + "px"; q.setAttribute("aria-expanded", "true"); }
+    });
+  });
+
+  // Testimonials carousel
+  var slides = document.querySelectorAll(".testimonial"), dots = $("testiDots"), idx = 0, timer;
+  slides.forEach(function(_, i){
+    var d = document.createElement("button");
+    d.type = "button"; d.setAttribute("aria-label", "Review " + (i + 1));
+    d.addEventListener("click", function(){ show(i); });
+    dots.appendChild(d);
+  });
+  function show(i){
+    idx = (i + slides.length) % slides.length;
+    slides.forEach(function(s, n){ s.classList.toggle("active", n === idx); });
+    dots.querySelectorAll("button").forEach(function(d, n){ d.classList.toggle("on", n === idx); });
+  }
+  function auto(){ clearInterval(timer); timer = setInterval(function(){ show(idx + 1); }, 5000); }
+  $("testiPrev").addEventListener("click", function(){ show(idx - 1); auto(); });
+  $("testiNext").addEventListener("click", function(){ show(idx + 1); auto(); });
+  $("testiWrap").addEventListener("mouseenter", function(){ clearInterval(timer); });
+  $("testiWrap").addEventListener("mouseleave", auto);
+  show(0); auto();
+
+  // Newsletter
+  var news = $("newsletter");
+  news.addEventListener("submit", function(e){
+    e.preventDefault();
+    var v = $("newsEmail").value.trim();
+    news.classList.remove("bad");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+      void news.offsetWidth; news.classList.add("bad");
+      window.showToast("Please enter a valid email address", true);
+      return;
+    }
+    window.showToast("Subscribed! Thank you.");
+    news.reset();
+  });
+
+  // Back to top
+  var top = $("toTop");
+  window.addEventListener("scroll", function(){ top.classList.toggle("show", window.scrollY > 500); }, {passive:true});
+  top.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
+})();
+</script>
+
+</body>
+</html>
